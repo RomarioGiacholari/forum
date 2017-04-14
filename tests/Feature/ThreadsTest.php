@@ -10,11 +10,12 @@ class ThreadsTest extends TestCase
 {
 
 
+
     public function setUp(){
 
         parent::setUp();
 
-        $this->thread = factory('App\Thread')->create();
+        $this->thread = create('App\Thread');
 
     }
 
@@ -36,15 +37,29 @@ class ThreadsTest extends TestCase
         $response->assertSee($this->thread->title);
     }
 
-         /** @test*/
+    /** @test*/
     public function a_user_can_read_replies_that_are_associated_with_the_thread()
     {
-        $reply = factory('App\Reply')->create(['thread_id' => $this->thread->id]);
+        $reply = create('App\Reply',['thread_id' => $this->thread->id]);
 
     
         $response = $this->get($this->thread->path());
 
         $response->assertSee($reply->body);
+    }
+
+    /** @test*/
+    public function a_user_can_filter_according_to_a_tag()
+    {
+        $channel = create('App\Channel');
+
+        $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
+
+        $threadNotInChannel = create('App\Thread');
+
+        $this->get('/threads/' . $channel->slug)
+             ->assertSee($threadInChannel->title)
+             ->assertDontSee($threadNotInChannel->title);
     }
 
 }

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
     @foreach($threads as $thread)
-        <div class="col-md-4 col-md-offset-0" style ='height:280px'>
+        <div class="col-md-4 col-sm-6  col-md-offset-0" style ='height:300px'>
             <div class="panel panel-default">
                 <div class="panel-heading">
                  <h4>
@@ -25,12 +25,5 @@
         </div>
         @endforeach 
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-3" style="padding-top:100px">
-    {{ $threads->links() }}
-    </div>
 </div>
-
-
-
 @endsection
