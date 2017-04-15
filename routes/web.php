@@ -27,6 +27,4 @@ Route::get('/threads/{channel}/{thread}','ThreadController@show');
 
 Route::get('/threads/{channel}','ChannelController@index');
 
-//or Route::resource('threads','ThreadController');
-
 Route::post('/threads/{channel}/{thread}/replies','ReplyController@store');
