@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/threads">Forum</a>
+      <a class="navbar-brand" href="/threads">Discusslab</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -58,7 +58,7 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Search</button>
       </form>
          <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
