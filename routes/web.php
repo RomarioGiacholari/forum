@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'ThreadController@index');
 Route::get('/threads','ThreadController@index');
 Route::get('/threads/create','ThreadController@create');
 Route::post('/threads','ThreadController@store');
