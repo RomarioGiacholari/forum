@@ -44,6 +44,9 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
+
+        $Channel::validChannels();
+
         $this->validate($request, [
 
             'title' => 'required',
