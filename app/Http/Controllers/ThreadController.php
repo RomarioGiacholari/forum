@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Thread;
+use App\Filters\ThreadFilters;
 use Illuminate\Http\Request;
 
 class ThreadController extends Controller
@@ -19,9 +20,9 @@ class ThreadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ThreadFilters $filters)
     {
-        $threads = Thread::latest()->paginate(15);
+        $threads = Thread::filter($filters)->get();
 
         return view('threads.index', compact('threads'));
     }
@@ -45,7 +46,6 @@ class ThreadController extends Controller
     public function store(Request $request)
     {
 
-        $Channel::validChannels();
 
         $this->validate($request, [
 

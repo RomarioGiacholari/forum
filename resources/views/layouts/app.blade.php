@@ -27,7 +27,7 @@
 </head>
 <body style="padding-bottom:100px;padding-top:100px;">
     <div id="app">
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: black">
+<nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -43,12 +43,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/threads">All Threads</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/threads">All Threads</a></li>
+            @if(auth()->check())
+            <li><a href="/threads?by={{auth()->user()->name}}">My Threads</a></li>
+            @endif
+          </ul>
+        </li>
+
         <li><a href="/threads/create">New Thread</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channels<span class="caret"></span></a>
           <ul class="dropdown-menu">
-          @foreach(App\Channel::all() as $channel)
+          @foreach($channels as $channel)
             <li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
             @endforeach
           </ul>
@@ -63,7 +72,10 @@
          <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
+                         <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                          @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
@@ -87,6 +99,8 @@
                                 </ul>
                             </li>
                         @endif
+                          </ul>
+                         </li>
                     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
