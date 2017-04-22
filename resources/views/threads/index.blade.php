@@ -12,7 +12,9 @@
                  <h4 class='flex'>
                   <a href = "{{$thread->path()}}">{{$thread->title}}</a>
                  </h4>
-                 <strong>{{$thread->replies->count()}} {{str_plural('reply',$thread->replies->count())}}</strong>
+                 <a href="{{$thread->path()}}">
+                 <strong>{{$thread->replies_count}} {{str_plural('reply',$thread->replies->count())}}</strong>
+                 </a>
                 </div>
                 </div>
                 <div class="panel-body">

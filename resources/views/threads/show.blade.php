@@ -51,7 +51,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                   <p>
-                  The thread was published {{$thread->created_at->diffForHumans()}} by <a href="#">{{$thread->creator->name}}</a>, and currently has {{$thread->replies()->count()}} {{str_plural('comment', $thread->replies()->count())}}.
+                  The thread was published {{$thread->created_at->diffForHumans()}} by <a href="#">{{$thread->creator->name}}</a>, and currently has {{$thread->replies_count}} {{str_plural('comment', $thread->replies_count)}}.
 
                   </p>
                 </div>
