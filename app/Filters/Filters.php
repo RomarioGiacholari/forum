@@ -26,7 +26,7 @@ abstract class Filters
 
 			if(method_exists($this, $filter) && $this->request->has($filter)){
 
-				$this->$filter($this->request->$filter);
+			$this->$filter($this->request->$filter);
 			}
 		}
 

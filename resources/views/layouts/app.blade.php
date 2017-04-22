@@ -14,7 +14,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-
+    body{padding-bottom:100px;padding-top:80px;}
+    .level{dislpay:flex; allign-itmes:center;}
+    .flex{flex:1;}
 
     </style>
 
@@ -25,9 +27,9 @@
         ]) !!};
     </script>
 </head>
-<body style="padding-bottom:100px;padding-top:100px;">
+<body>
     <div id="app">
-<nav class="navbar navbar-default navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -53,7 +55,6 @@
           </ul>
         </li>
 
-        <li><a href="/threads/create">New Thread</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channels<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -61,6 +62,7 @@
             <li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
             @endforeach
           </ul>
+            <li><a href="/threads/create">New Thread</a></li>
         </li>
       </ul>
       <form class="navbar-form navbar-left">

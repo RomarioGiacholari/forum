@@ -75,4 +75,9 @@ class ThreadsTest extends TestCase
             ->assertDontSee($threadsNotByJohn->title);
     }
 
+    /** @test*/
+    public function a_user_can_filter_threads_by_popularity()
+    {
+       
+    }
 }

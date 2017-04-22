@@ -41,11 +41,11 @@
 
                      @if(count($errors))
  
-                        <ul class ="alert alert-danger">
+                        <ol class ="alert alert-danger text-center" >
                         @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
+                            <p>{{$error}}</p>
                         @endforeach
-                        </ul>
+                        </0l>
 
                      @endif
 
