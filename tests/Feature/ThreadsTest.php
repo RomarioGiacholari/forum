@@ -10,6 +10,7 @@ class ThreadsTest extends TestCase
 {
 
 
+
     public function setUp(){
 
         parent::setUp();
@@ -85,7 +86,7 @@ class ThreadsTest extends TestCase
         $threadWithThreeReplies = create('App\Thread');
         create('App\Reply', ['thread_id' => $threadWithThreeReplies->id], 3);
 
-        $threadWithNoReplies = $this->thread;
+        $threadWithNoReplies = create('App\Thread');
 
         $response = $this->getJson('/threads?popular=1')->json();
 

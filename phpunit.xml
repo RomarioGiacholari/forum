@@ -24,8 +24,12 @@
     </filter>
     <php>
         <env name="APP_ENV" value="testing"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="DB_CONNECTION" value="pgsql"/>
+        <env name="DB_DATABASE" value="d1834mretb799e"/>
+        <env name="DB_USERNAME" value="rpzwclkmefqoip"/>
+        <env name="DB_PASSWORD" value="951d9d0945fc5b9d96537add852f384d8befd30eae3ada11a0658af81fd67a13"/>
+        <env name="DB_HOST" value="ec2-79-125-125-97.eu-west-1.compute.amazonaws.com"/>
+        <env name="DB_PORT" value="5432"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="QUEUE_DRIVER" value="sync"/>

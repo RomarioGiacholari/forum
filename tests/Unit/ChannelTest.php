@@ -10,6 +10,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 Class ChannelTest extends TestCase 
 {
 
+
+  
 	/** @test */
 	public function a_channel_consists_of_threads()
 	{
