@@ -19,12 +19,12 @@
                 </div>
                 <div class="panel-body">
                     
-                    	<article>
+                    	<blockquote>
                     		<div>{{$thread->body}}</div>
-                    	</article>
+                    	</blockquote>
 
                         <hr>
-                   
+                   <p ><a style="color:#E0000F" href= "{{$thread->path()}}">Answer</a></p>
                 </div>
             </div>
         </div>

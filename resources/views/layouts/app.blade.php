@@ -52,6 +52,7 @@
             <li><a href="/threads?popular=1">Popular Threads</a></li>
             @if(auth()->check())
             <li><a href="/threads?by={{auth()->user()->name}}">My Threads</a></li>
+            <li><a href="{{route('profile', auth()->user()->name)}}">My Profile</a></li>
             @endif
           </ul>
         </li>
