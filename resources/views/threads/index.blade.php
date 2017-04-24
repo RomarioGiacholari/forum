@@ -9,9 +9,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                 <div class ='level'>
-                 <h4 class='flex'>
-                  <a href = "{{$thread->path()}}">{{$thread->title}}</a>
-                 </h4>
+                 <h3 class='flex'>
+                  <a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a>
+                 </h3>
                  <a href="{{$thread->path()}}">
                  <strong>{{$thread->replies_count}} {{str_plural('reply',$thread->replies->count())}}</strong>
                  </a>

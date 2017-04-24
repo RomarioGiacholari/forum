@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    body{padding-bottom:100px;padding-top:80px;}
+    body{padding-bottom:100px;padding-top:60px;}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
 
@@ -29,7 +29,7 @@
 </head>
 <body>
     <div id="app">
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" style ='background-color: black'>
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
