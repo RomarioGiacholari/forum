@@ -25,10 +25,12 @@
 
                         <hr>
                    <p ><a style="color:#E0000F" href= "{{$thread->path()}}">Answer</a></p>
+                   <p><strong>Topic:</strong> <a href="/threads/{{$thread->channel->slug}}">{{$thread->channel->name}}</a></p>
                 </div>
             </div>
         </div>
         @endforeach 
-    </div>
+
+       <a href="/threads/create" class="btn btn-danger" role="button" style =' position: fixed;bottom: 0;right: 0;width:100%;font-size:1em'>Post a Question</a>
 </div>
 @endsection

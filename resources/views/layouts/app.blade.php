@@ -39,7 +39,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/threads">Discusslab</a>
+      <a style="color:white" class="navbar-brand" href="/threads">Discusslab</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,21 +64,14 @@
             <li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
             @endforeach
           </ul>
-            <li><a href="/threads/create">New Thread</a></li>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
+      <div class="navbar-form navbar-left">
+        <a href="/threads/create" class="btn btn-danger" role="button">Post a Question</a>
+      </div>
          <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
-                          <ul class="dropdown-menu">
                           @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
@@ -95,8 +88,6 @@
                                         </form>
                                     </li>
                         @endif
-                          </ul>
-                         </li>
                     </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
