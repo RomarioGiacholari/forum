@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    body{padding-bottom:100px;padding-top:60px;}
+    body{padding-bottom:100px;padding-top:80px;}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
 

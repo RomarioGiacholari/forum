@@ -19,7 +19,7 @@
                 </div>
                 <div class="panel-body">
                     
-                    	<blockquote>
+                    	<blockquote style ='overflow:hidden'>
                     		<div>{{$thread->body}}</div>
                     	</blockquote>
 
