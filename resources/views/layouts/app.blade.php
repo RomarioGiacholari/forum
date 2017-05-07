@@ -18,6 +18,13 @@
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
 
+    @media all and (display-mode:standalone){
+
+      body{
+        background-color:orange;
+      }
+    }
+
     </style>
 
     <!-- Scripts -->
