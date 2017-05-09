@@ -9,7 +9,7 @@
 			     <form method='POST' action="/replies/{{$reply->id}}/favorites">
 			     	{{csrf_field()}}
 
-			     	 <button type ='submit' class ='btn btn-primary ' {{$reply->isFavorited() ? 'disabled' : '' }}>
+			     	 <button type ='submit' class ='btn btn-primary btn-sm ' {{$reply->isFavorited() ? 'disabled' : '' }}>
 			     	 	
 			     	 {{$reply->favorites()->count()}} {{str_plural('like',$reply->favorites()->count())}}
 

@@ -31,6 +31,6 @@
         </div>
         @endforeach 
 
-       <a href="/threads/create" class="btn btn-danger" role="button" style =' position: fixed;bottom: 0;right: 0;width:100%;font-size:1em;opacity:0.7'>Post a Question</a>
+       <!-- <a href="/threads/create" class="btn btn-default" role="button" style =' position: fixed;bottom: 0;right: 0;width:100%;font-size:1em;opacity:0.9;color:black'>Post a Question</a> -->
 </div>
 @endsection

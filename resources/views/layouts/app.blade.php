@@ -14,17 +14,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    body{padding-bottom:100px;padding-top:80px;}
+    body{padding-bottom:100px;padding-top:80px;background-color: white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
-
-    @media all and (display-mode:standalone){
-
-      body{
-        background-color:orange;
-      }
-    }
-
     </style>
 
     <!-- Scripts -->
@@ -65,7 +57,7 @@
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Channels<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
           <ul class="dropdown-menu">
           @foreach($channels as $channel)
             <li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
@@ -74,7 +66,7 @@
         </li>
       </ul>
       <div class="navbar-form navbar-left">
-        <a href="/threads/create" class="btn btn-danger" role="button">Post a Question</a>
+        <a href="/threads/create" class="btn btn-default" role="button">Post a Question</a>
       </div>
          <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

@@ -7,13 +7,16 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
+                <h1>
                 <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a> <span style="color:black;">posted:</span>
                 {{$thread->title}}
+                </h1>
                 </div>
 
                 <div class="panel-body">
-                   {{$thread->body}}
+                   <strong>{{$thread->body}}</strong>
                 </div>
+
             </div>
      
 
