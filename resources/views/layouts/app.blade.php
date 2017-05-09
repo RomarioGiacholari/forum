@@ -14,7 +14,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    body{padding-bottom:100px;padding-top:80px;background-color: white}
+    body{padding-bottom:100px;padding-top:80px;background-color:white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
     </style>
@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-<nav class="navbar navbar-inverse navbar-fixed-top" style ='background-color: black'>
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -38,7 +38,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a style="color:white" class="navbar-brand" href="/threads">Discusslab</a>
+      <a class="navbar-brand" href="/threads">Discusslab</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,7 +66,7 @@
         </li>
       </ul>
       <div class="navbar-form navbar-left">
-        <a href="/threads/create" class="btn btn-default" role="button">Post a Question</a>
+        <a href="/threads/create" class="btn btn-primary" role="button">Post a Question</a>
       </div>
          <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

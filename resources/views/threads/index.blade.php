@@ -5,14 +5,14 @@
 <div class="container">
     <div class="row">
     @foreach($threads as $thread)
-        <div class="col-md-8 col-sm-6  col-md-offset-2" >
-            <div class="panel panel-default">
+        <div class="col-md-8 col-sm-6  col-md-offset-2">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
                 <div class ='level'>
                  <h3 class='flex'>
                   <a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a>
                  </h3>
-                 <a href="{{$thread->path()}}">
+                 <a href="{{$thread->path()}}" style='color:black'>
                  <strong>{{$thread->replies_count}} {{str_plural('reply',$thread->replies->count())}}</strong>
                  </a>
                 </div>

@@ -33,7 +33,7 @@
                         </div>
 
                         <div class ='form-group'>
-                        <button type="submit" class="btn btn-primary ">Publish</button>
+                        <button type="submit" class="btn btn-primary btn-block ">Publish</button>
                         </div>
                      </form>
 
