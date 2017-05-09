@@ -6,7 +6,7 @@
     <div class="row">
     @foreach($threads as $thread)
         <div class="col-md-8 col-sm-6  col-md-offset-2">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                 <div class ='level'>
                  <h3 class='flex'>
