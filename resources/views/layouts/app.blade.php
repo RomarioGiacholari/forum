@@ -8,13 +8,15 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>{{ config('app.name', 'Forum') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-    body{padding-bottom:100px;padding-top:80px;background-color:white}
+    body{padding-bottom:100px;padding-top:100px;background-color:white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
     </style>
@@ -27,75 +29,37 @@
     </script>
 </head>
 <body>
+<div class="w3-container">
 <div id="app">
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand " style='color:white' href="/threads">Discusslab</a>
-    </div>
+<div class="w3-bar w3-light-grey w3-border w3-large navbar-fixed-top">
+  <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
+  @foreach($channels as $channel)
+  <a href="/threads/{{$channel->slug}}" class="w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
+  @endforeach
+  <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
+  @if(auth()->check())
+  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+  <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+  <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-question-circle"></i></a>
+ @endif
+ @if(Auth::guest())
+  <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
+  <a href="{{ route('register') }}" class="w3-bar-item w3-button"><i class="fa fa-register"></i></a>
+  @else
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Browse<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/threads">All Threads</a></li>
-            <li><a href="/threads?popular=1">Popular Threads</a></li>
-            @if(auth()->check())
-            <li><a href="/threads?by={{auth()->user()->name}}">My Threads</a></li>
-            <li><a href="{{route('profile', auth()->user()->name)}}">My Profile</a></li>
-            @endif
-          </ul>
-        </li>
+<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    
+    {{ csrf_field() }}
+  </form>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Topics<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          @foreach($channels as $channel)
-            <li><a href="/threads/{{$channel->slug}}">{{$channel->name}}</a></li>
-            @endforeach
-          </ul>
-        </li>
-      </ul>
-      <div class="navbar-form navbar-left">
-        <a href="/threads/create" class="btn btn-default" role="button">Post a Question</a>
-      </div>
-         <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                          @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+  @endif
+</div>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                        @endif
-                    </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-        @yield('content')
-    </div>
+        @yield('content') 
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    </div>
 </body>
 </html>
