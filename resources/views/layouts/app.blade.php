@@ -20,7 +20,7 @@
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
     #mySidenav a {
-    position: fixed;
+    position:absolute;
     left: -80px;
     transition: 0.3s;
     padding: 15px;
