@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                <h1>
+                <h1 style='overflow:hidden;'>
                 <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a> <span style="color:black;">posted:</span>
                 {{$thread->title}}
                 </h1>

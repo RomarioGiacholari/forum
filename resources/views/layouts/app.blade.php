@@ -20,7 +20,7 @@
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
     #mySidenav a {
-    position: absolute;
+    position: fixed;
     left: -80px;
     transition: 0.3s;
     padding: 15px;
@@ -63,6 +63,10 @@
         top: 350px;
         background-color: #755
     }
+    .ask-button{
+        top: 450px;
+        background-color:red
+    }
     </style>
 
     <!-- Scripts -->
@@ -78,6 +82,9 @@
   <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
 </div>
 @endforeach
+<div id="mySidenav">
+  <a href="/threads/create" class="ask-button w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+</div>
 
 <div class="w3-container">
 <div id="app">
@@ -85,16 +92,16 @@
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
   <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
   @if(auth()->check())
-  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my threads</i></a>
   <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-  <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-question-circle"></i></a>
+  <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
  @endif
  @if(Auth::guest())
   <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
-  <a href="{{ route('register') }}" class="w3-bar-item w3-button"><i class="fa fa-register"></i></a>
+  <a href="{{ route('register') }}" class="w3-bar-item w3-button"><i>register</i></a>
   @else
 
-<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i></a>
+<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"><i class="fa fa-power-off"></i></a>
   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     
     {{ csrf_field() }}
