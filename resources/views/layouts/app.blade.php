@@ -19,6 +19,50 @@
     body{padding-bottom:100px;padding-top:100px;background-color:white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
+    #mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 100px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    z-index: 1;
+    }
+
+    #mySidenav a:hover {
+        left: 0;
+    }
+
+    .tech {
+        top: 50px;
+        background-color: #4CAF50;
+    }
+
+    .general {
+        top: 110px;
+        background-color: #2196F3;
+    }
+
+    .review {
+        top: 170px;
+        background-color: #f44336;
+    }
+
+    .legal {
+        top: 230px;
+        background-color: #555
+    }
+     .music {
+        top: 290px;
+        background-color: #575
+    }
+     .gaming {
+        top: 350px;
+        background-color: #755
+    }
     </style>
 
     <!-- Scripts -->
@@ -29,13 +73,16 @@
     </script>
 </head>
 <body>
+ @foreach($channels as $channel)
+<div id="mySidenav" class="sidenav">
+  <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
+</div>
+@endforeach
+
 <div class="w3-container">
 <div id="app">
 <div class="w3-bar w3-light-grey w3-border w3-large navbar-fixed-top">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
-  @foreach($channels as $channel)
-  <a href="/threads/{{$channel->slug}}" class="w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
-  @endforeach
   <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
   @if(auth()->check())
   <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
