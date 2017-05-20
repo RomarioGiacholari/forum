@@ -39,7 +39,7 @@
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
   <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
   @if(auth()->check())
-  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my threads</i></a>
+  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
   <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
   <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
  @endif
