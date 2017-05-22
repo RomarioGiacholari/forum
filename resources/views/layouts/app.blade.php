@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -32,19 +32,25 @@
 <div class="w3-container navbar navbar-fixed-top" >
 <div class="w3-bar w3-light-grey w3-border w3-large">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
-  <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
    <div class="w3-dropdown-hover">
-      <button class="w3-button"><span class="caret"></span></button>
+      <button class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         @foreach($channels as $channel)
         <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
-    @endforeach
+       @endforeach
+       <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
       </div>
     </div>
   @if(auth()->check())
-  <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
-  <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-  <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+  <div class="w3-dropdown-hover">
+      <button class="w3-button"><i class="fa fa-user"></i></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+      <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
+      <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i>profile</i></a>
+      <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+      </div>
+    </div>
+ 
  @endif
  @if(Auth::guest())
   <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>

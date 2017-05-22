@@ -8,7 +8,7 @@
  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
  
  
- body{padding-bottom:100px;padding-top:100px;background-color:white}
+ body{padding-bottom:100px;padding-top:70px;background-color:white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
     #mySidenav a {
@@ -50,6 +50,6 @@
         background-color: #755
     }
     .ask-button{
-        top: 450px;
+        top: 150px;
         background-color:red
     }
