@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-    @foreach($threads as $thread)
+    @forelse($threads as $thread)
         <div class="col-md-6 col-sm-6  col-md-offset-0">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -29,7 +29,9 @@
                 </div>
             </div>
         </div>
-        @endforeach 
+        @empty
+        <blockquote>There are no post yet listed for this category</blockquote>
+        @endforelse
 
        <!-- <a href="/threads/create" class="btn btn-default" role="button" style =' position: fixed;bottom: 0;right: 0;width:100%;font-size:1em;opacity:0.9;color:black'>Post a Question</a> -->
 </div>
