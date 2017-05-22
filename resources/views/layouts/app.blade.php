@@ -24,20 +24,23 @@
     </script>
 </head>
 <body>
- @foreach($channels as $channel)
-<div id="mySidenav" class="sidenav">
-  <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
-</div>
-@endforeach
+<div id="app">
 <div id="mySidenav">
   <a href="/threads/create" class="ask-button w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
 </div>
 
-<div class="w3-container">
-<div id="app">
-<div class="w3-bar w3-light-grey w3-border w3-large navbar-fixed-top">
+<div class="w3-container navbar navbar-fixed-top" >
+<div class="w3-bar w3-light-grey w3-border w3-large">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
   <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
+   <div class="w3-dropdown-hover">
+      <button class="w3-button"><span class="caret"></span></button>
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        @foreach($channels as $channel)
+        <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
+    @endforeach
+      </div>
+    </div>
   @if(auth()->check())
   <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
   <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
@@ -55,6 +58,7 @@
   </form>
 
   @endif
+</div>
 </div>
 
         @yield('content') 
