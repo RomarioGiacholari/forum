@@ -24,7 +24,6 @@
     </script>
 </head>
 <body>
-<div id="app">
 <div id="mySidenav">
   <a href="/threads/create" class="ask-button w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
 </div>
@@ -71,6 +70,5 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    </div>
 </body>
 </html>
