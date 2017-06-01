@@ -12,20 +12,15 @@
                  <h3 class='flex'>
                   <a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a>
                  </h3>
-                 <a href="{{$thread->path()}}" style='color:black'>
-                 <strong>{{$thread->replies_count}} {{str_plural('reply',$thread->replies->count())}}</strong>
+                 <a href="{{$thread->path()}}">
+                 {{$thread->replies_count}} <i class="fa fa-reply" aria-hidden="true"></i>
                  </a>
                 </div>
                 </div>
                 <div class="panel-body">
-                    
-                    	<blockquote style ='overflow:hidden'>
-                    		<div>{{$thread->body}}</div>
-                    	</blockquote>
-
-                        <hr>
-                   <p ><a style="color:#E0000F" href= "{{$thread->path()}}">Answer</a></p>
-                   <p><strong>Topic:</strong> <a href="/threads/{{$thread->channel->slug}}">{{$thread->channel->name}}</a></p>
+                   <p>{{$thread->body}}</p>
+                   <p ><a style="color:#E0000F" href= "{{$thread->path()}}">Answer <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                   <strong >Topic:</strong> <a class="{{$thread->channel->name}}" href="/threads/{{$thread->channel->slug}}">{{$thread->channel->name}}</a></p>
                 </div>
             </div>
         </div>

@@ -7,7 +7,6 @@
  // Bootstrap
  @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
  
- 
  body{padding-bottom:100px;padding-top:70px;background-color:white}
     .level{display:flex; align-itmes:center;}
     .flex{flex:1;}
@@ -29,28 +28,28 @@
     }
 
     .tech {
-        background-color: #4CAF50;
+        color: #4CAF50;
     }
 
     .general {
-        background-color: #2196F3;
+        color: #2196F3;
     }
 
     .review {
-        background-color: #f44336;
+        color: #f44336;
     }
 
     .legal {
-        background-color: #555
+        color: #585
     }
      .music {
-        background-color: #575
+        color: #575
     }
      .gaming {
-        background-color: #755
+        color: #755
     }
     .ask-button{
         top: 150px;
-        background-color:red
+         background-color:red
     }
 

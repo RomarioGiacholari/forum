@@ -41,6 +41,16 @@
             </div>
 
             </form>
+
+             @if(count($errors))
+ 
+                        <ol class ="text-center" >
+                        @foreach($errors->all() as $error)
+                            <p style='color:red'>{{$error}}</p>
+                        @endforeach
+                        </0l>
+
+             @endif
      
     @else
 
