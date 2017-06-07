@@ -10,7 +10,7 @@
                     <form action="/threads" method="POST">
                         {{csrf_field()}}
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('channel_id') ? ' has-error' : '' }}">
                          <label for="channel_id">Pick a channel</label>
                          <select name='channel_id' id ='channel_id' class="form-control" required="">
                          <option value="">Choose One</option>
@@ -21,12 +21,12 @@
                         </div>
 
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                          <label for="title">Title:</label>
                         <input type="text" class="form-control" name="title" id="title" value ="{{old('title')}}" required="">
                         
 
-                        <div class="form-group">
+                        <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }}">
                          <label for="body">Body:</label>
                             <textarea  class="form-control" name="body" id="body" rows="8" required="">{{old('body')}}</textarea>
                             </div>
