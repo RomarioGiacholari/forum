@@ -46,7 +46,7 @@ class ReplyController extends Controller
     {
         $this->validate(request(), [
 
-            'body' => 'required',
+            'body' => 'required|max:255',
 
             ]);
         

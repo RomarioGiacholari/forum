@@ -29,7 +29,7 @@
 </div>
 
 <div class="w3-container navbar navbar-fixed-top" >
-<div class="w3-bar w3-light-grey w3-border w3-large">
+<div class="w3-bar w3-black w3-border w3-large">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
    <div class="w3-dropdown-hover">
       <button class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>

@@ -12,8 +12,7 @@
                 {{$thread->title}}
                 </h1>
                 </div>
-
-                <div class="panel-body">
+            <div class="panel-body">
                    <strong>{{$thread->body}}</strong>
                 </div>
 
@@ -54,7 +53,7 @@
      
     @else
 
-    <p class ='text-center'>Please <a href="{{route('login')}}">sign</a> in to participate in this discussion</p>
+    <a href="{{route('login')}}"><strong><u><p class ='text-center'>Please sign in to participate in this discussion</p></u></strong></a>
 
     @endif
    </div>
