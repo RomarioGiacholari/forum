@@ -20,7 +20,7 @@
                 </div>
                 </div>
                 <div class="panel-body">
-                   <p>{{$thread->body}}</p>
+                   <p id="thread-text">{{$thread->body}}</p>
                 </div>
             </div>
         </div>
