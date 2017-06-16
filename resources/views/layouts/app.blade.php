@@ -29,10 +29,10 @@
 </div>
 
 <div class="w3-container navbar navbar-fixed-top" >
-<div class="w3-bar w3-black w3-border w3-large">
+<div class="w3-bar w3-white w3-border w3-large">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
-   <div class="w3-dropdown-hover">
-      <button class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+   <div class="w3-dropdown-click">
+      <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
         @foreach($channels as $channel)
         <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
