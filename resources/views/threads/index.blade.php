@@ -27,15 +27,4 @@
 
        <!-- <a href="/threads/create" class="btn btn-default" role="button" style =' position: fixed;bottom: 0;right: 0;width:100%;font-size:1em;opacity:0.9;color:black'>Post a Question</a> -->
 </div>
-<script type="text/javascript">
-   function toggleCaret() {
-      var x = document.querySelector(".w3-dropdown-content");
-      if (x.className.indexOf("w3-show") == -1) {  
-          x.className += " w3-show";
-      } else { 
-          x.className = x.className.replace(" w3-show", "");
-      }
-    }
-  
-</script>
 @endsection

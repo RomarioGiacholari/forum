@@ -70,5 +70,16 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript">
+     function toggleCaret() {
+        var x = document.querySelector(".w3-dropdown-content");
+        if (x.className.indexOf("w3-show") == -1) {  
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+      }
+    
+  </script>
 </body>
 </html>
