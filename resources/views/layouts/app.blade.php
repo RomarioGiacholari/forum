@@ -31,6 +31,8 @@
 <div class="w3-container navbar navbar-fixed-top" >
 <div class="w3-bar w3-white w3-border w3-large">
   <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
+ 
+  <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true"><i class="fa fa-info" ></i></a>
    <div class="w3-dropdown-click">
       <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
       <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -67,6 +69,32 @@
 </div>
 
         @yield('content') 
+
+          <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><strong>About Discusslab</strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           Thank you for stopping by. Discusslab is a side project that I have been working lately. I've built this web app in order to sharpen my programming skills. However, feel comfortable to post any questions. You can find me on LinkedIn <a href = 'https://www.linkedin.com/in/romario-giacholari-71130b11b?trk=hp-identity-name' target="_blank">Romario Giacholari</a> 
+           <div class="text-center">
+           <img src="https://s3.eu-west-2.amazonaws.com/aston-room/astonroom/14979789202016-05-08%2005.07.27.jpg" alt="Romario Giacholari" style="height:80px;width:70px;border-radius:50%">
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

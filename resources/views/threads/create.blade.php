@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<body style="background-color: white">
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-md-offset-0">
+        <div class="col-md-12 col-md-offset-0 ">
                 <h1>Create a New Thread </h1>
                      
                     <form action="/threads" method="POST">
@@ -43,12 +43,12 @@
                         @foreach($errors->all() as $error)
                             <p style='color:red'>{{$error}}</p>
                         @endforeach
-                        </0l>
+                        </ol>
 
                      @endif
 
             </div>
+        </div>
     </div>
-    </div>
-
+</body>
 @endsection
