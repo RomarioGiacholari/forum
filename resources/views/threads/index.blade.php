@@ -5,7 +5,7 @@
 <div class="container">
     <section id="pinBoot">
     @forelse($threads as $thread)
-            <div class="white-panel"">
+            <div class="white-panel">
                 <div class ='level'>
                  <div class='flex'>
                   <h4><strong><a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a></strong></h4>
