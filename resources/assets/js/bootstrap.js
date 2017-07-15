@@ -11,8 +11,8 @@ window.$ = window.jQuery = require('jquery');
 
 require('bootstrap-sass');
 
-var Turbolinks = require("turbolinks");
-Turbolinks.start();
+// var Turbolinks = require("turbolinks");
+// Turbolinks.start();
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
