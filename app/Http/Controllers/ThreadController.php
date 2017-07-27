@@ -96,7 +96,9 @@ class ThreadController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        $this->authorize('update', $thread);
+
+        return view('threads.edit',compact('thread'));
     }
 
     /**
@@ -108,7 +110,19 @@ class ThreadController extends Controller
      */
     public function update(Request $request, Thread $thread)
     {
-        //
+          $this->authorize('update', $thread);
+
+           $this->validate($request, [
+
+            'title' => 'required|max:15',
+            'body' => 'required|max:255',
+            'channel_id' => 'required|exists:channels,id',
+
+            ]);
+
+        $thread->update($request->all());
+
+        return redirect(route('profile',auth()->user()->name));
     }
 
     /**
@@ -119,6 +133,10 @@ class ThreadController extends Controller
      */
     public function destroy(Thread $thread)
     {
-        //
+        $this->authorize('update', $thread);
+        
+        $thread->delete();
+
+        return back();
     }
 }

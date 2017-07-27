@@ -7,6 +7,13 @@ use App\Channel;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+    protected $policies = [
+
+        'App\Thread' => 'App\Policies\ThreadPolicy',
+    ];
+
+
     /**
      * Bootstrap any application services.
      *

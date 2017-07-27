@@ -24,7 +24,17 @@
                 <div class="panel-body">
                    {{$thread->body}}
                 </div>
-            </div>
+                @can('update',$thread)
+                <div class="panel-footer">
+                    <form action="{{route('delete_thread',$thread->id)}}" method="POST">
+                        {{method_field('DELETE')}}
+                        {{csrf_field()}}
+                   <a href="#" onclick="$(this).closest('form').submit()" style="color:red">delete</a>
+                    </form>
+                    <a href="{{route('edit_thread',$thread->id)}}">edit</a>
+                </div>
+                @endcan
+    </div>
 
 @endforeach
 
