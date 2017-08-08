@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
 <div class="row">
-<div class="col-md-12">
- <h3><strong>Update a reply</strong></h3>
+<div class="col-md-12 col-md-offset-0">
+ <h3><strong>Update reply</strong></h3>
 
  <hr>
 
@@ -38,9 +38,7 @@
 	        <textarea class="form-control" name="body" id="body" rows="4" required>{{$reply->body}}</textarea>
 	     </div>
 
-	     <div class ='form-group'>
 	        <button type="submit" class="btn btn-primary btn-block ">Update</button>
-	     </div>
      </form>
 
       @if(count($errors))

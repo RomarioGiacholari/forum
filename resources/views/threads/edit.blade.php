@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 col-md-offset-0 ">
-                <h3><strong>Update a question</strong></h3>
+                <h3><strong>Update question</strong></h3>
                 <hr>
                      
                     <form action="{{route('update_thread',$thread->id)}}" method="POST">
