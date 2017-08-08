@@ -24,4 +24,15 @@
      <div class="panel-body">
         {{$reply->body}}
      </div>
+     @can('update',$reply)
+                <div class="panel-footer">
+                    <form action="{{route('delete_reply',$reply->id)}}" method="POST">
+                        {{method_field('DELETE')}}
+                        {{csrf_field()}}
+                   <a href="#" onclick="$(this).closest('form').submit()" style="color:red">delete</a>
+                    </form>
+                    <a href="{{route('edit_reply',$reply->id)}}">edit</a>
+                </div>
+       @endcan
+
  </div>

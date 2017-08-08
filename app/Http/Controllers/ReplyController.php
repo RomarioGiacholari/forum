@@ -79,7 +79,9 @@ class ReplyController extends Controller
      */
     public function edit(Reply $reply)
     {
-        //
+        $this->authorize('update', $reply);
+
+        return view('replies.edit',compact('reply'));
     }
 
     /**
@@ -91,7 +93,17 @@ class ReplyController extends Controller
      */
     public function update(Request $request, Reply $reply)
     {
-        //
+        $this->authorize('update', $reply);
+
+        $this->validate($request, [
+
+            'body' => 'required|max:255',
+
+            ]);
+
+        $reply->update($request->all());
+
+        return redirect($reply->thread->path());
     }
 
     /**
@@ -102,6 +114,10 @@ class ReplyController extends Controller
      */
     public function destroy(Reply $reply)
     {
-        //
+        $this->authorize('update', $reply);
+        
+        $reply->delete();
+
+        return back();
     }
 }
