@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reply;
 use App\Thread;
 use Illuminate\Http\Request;
+use App\Mail\UserReplied;
 
 class ReplyController extends Controller
 {
@@ -57,7 +58,11 @@ class ReplyController extends Controller
 
             ]);
 
+        \Mail::to($thread->creator->email)->send(new UserReplied($thread,auth()->user()));
+
         return back();
+
+
     }
 
     /**
