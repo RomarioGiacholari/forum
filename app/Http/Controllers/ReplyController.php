@@ -58,7 +58,10 @@ class ReplyController extends Controller
 
             ]);
 
-        \Mail::to($thread->creator->email)->send(new UserReplied($thread,auth()->user()));
+        if(! $thread->creator->id == auth()->id()){
+
+            \Mail::to($thread->creator->email)->send(new UserReplied($thread,auth()->user()));
+        }
 
         return back();
 
