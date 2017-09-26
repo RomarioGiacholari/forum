@@ -5,12 +5,13 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 Class ChannelTest extends TestCase 
 {
 
 
+	use DatabaseTransactions;
   
 	/** @test */
 	public function a_channel_consists_of_threads()

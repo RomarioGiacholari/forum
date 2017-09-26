@@ -10,6 +10,8 @@ class FavoritesTest extends TestCase
 {
 
 
+    use DatabaseTransactions;
+
     /** @test */
     public function guests_cannot_favorite_anything()
     {

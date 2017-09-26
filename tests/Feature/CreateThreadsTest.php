@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class CreateThreadsTest extends TestCase
 {
 
-
+ use DatabaseTransactions;
 
     /** @test */
     public function an_authenticated_user_can_create_new_forum_threads()

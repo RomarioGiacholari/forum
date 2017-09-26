@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ProfilesTest extends TestCase
 {
 
+ use DatabaseTransactions;
 
     /** @test */
     public function a_user_has_a_profile()
