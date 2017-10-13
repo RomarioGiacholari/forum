@@ -5,7 +5,7 @@
         	<a href="{{route('profile', $reply->owner)}}" >{{$reply->owner->name}}</a> said {{$reply->created_at->diffForHumans()}} ...
         </h5>
 		     <div>
-             @if(Auth::check())
+             @if(auth()->check())
 			     <form method='POST' action="/replies/{{$reply->id}}/favorites">
 			     	{{csrf_field()}}
 
