@@ -8,10 +8,10 @@
              @if(auth()->check())
 			     <form method='POST' action="/replies/{{$reply->id}}/favorites">
 			     	{{csrf_field()}}
-
+                     
 			     	 <button type ='submit' class ='btn btn-primary btn-sm ' {{$reply->isFavorited() ? 'disabled' : '' }}>
-			     	 	
-			     	 {{$reply->favorites()->count()}} {{str_plural('like',$reply->favorites()->count())}}
+                      
+			     	 {{$reply->favorites()->count()}} <i class="fa fa-heart" aria-hidden="true"></i>
 
 			     	 </button>
 
