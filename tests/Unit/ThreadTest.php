@@ -71,5 +71,23 @@ Class ThreadsTest extends TestCase
 		$this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}",$thread->path());
 	}
 
+	/** @test */
+	public function a_thread_can_update_itself()
+	{
+
+		$thread = create('App\Thread',[
+			'title' => 'Some title',
+			'body' => 'Some body'
+		]);
+
+		$this->assertEquals('Some title', $thread->title);
+
+		$thread->update(['title' => 'updated']);
+
+		$this->assertEquals('updated', $thread->title);
+
+		$this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}",$thread->path());
+	}
+
 
 }

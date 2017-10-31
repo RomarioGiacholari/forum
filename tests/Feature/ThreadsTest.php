@@ -73,8 +73,8 @@ class ThreadsTest extends TestCase
        $threadsNotByJohn = create('App\Thread');
 
        $this->get('threads?by=JohnDoe')
-            ->assertSee($threadsByJohn->title)
-            ->assertDontSee($threadsNotByJohn->title);
+            ->assertSee($threadsByJohn->body)
+            ->assertDontSee($threadsNotByJohn->body);
     }
 
     /** @test*/
