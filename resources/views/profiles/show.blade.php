@@ -7,8 +7,6 @@
         <small>activity since {{$profileUser->created_at->diffForHumans()}}</small>
         </h1>
     </div>
-
-<h3><span class="label label-default">threads</span></h3>
 @foreach($threads as $thread)
 	<div class="panel panel-default">
                 <div class="panel-heading">
@@ -37,7 +35,6 @@
 @endforeach
 {{$threads->links()}}
 
-    <h3><span class="label label-default">replies</span></h3>
     @foreach($replies as $reply)
         @include('threads.reply',$reply)
     @endforeach
