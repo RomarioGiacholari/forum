@@ -14,7 +14,7 @@ class ProfileController extends Controller
 
     		'profileUser' => $user,
     		'threads' => $user->threads()->paginate(15),
-
+			'replies' => $user->replies
     		]);
     }
 }
