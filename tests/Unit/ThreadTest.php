@@ -89,5 +89,25 @@ Class ThreadsTest extends TestCase
 		$this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}",$thread->path());
 	}
 
+	/**@test */
+	public function a_threads_replies_are_deleted_when_a_thread_is_deleted()
+	{
+		$this->thread->addReply([
+			'body'=> 'Foobar',
+			'user_id' => 1
+			]);
 
+		$this->assertCount(1,$this->thread->replies);
+
+		$this->thread->delete();
+
+		$this->assertCount(0,$this->thread->replies);
+		$this->assertDatabaseMissing('replies',[
+			'body'=> 'Foobar',
+			'user_id' => 1
+			]);
+
+	}
+
+	
 }

@@ -18,6 +18,10 @@ class Thread extends Model
             $builder->withCount('replies');
 
         });
+
+        static::deleting(function($thread) { // before delete() method call this
+            $thread->replies()->delete();
+       });
     }
 
     public function path()
