@@ -29,13 +29,11 @@ class User extends Authenticatable
 
     public function getRouteKeyName()
     {
-
         return 'name';
     }
 
     public function threads()
     {
-
         return $this->hasMany(Thread::class)->latest();
     }
 
@@ -43,6 +41,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
-
  
 }

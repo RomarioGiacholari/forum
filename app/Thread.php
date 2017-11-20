@@ -10,7 +10,6 @@ class Thread extends Model
 
     protected static function boot()
     {
-
         parent::boot();
 
         static::addGlobalScope('replyCount', function($builder){
@@ -26,25 +25,21 @@ class Thread extends Model
 
     public function path()
     {
-
     	return "/threads/{$this->channel->slug}/{$this->id}";
     }
 
-     public function replies()
+    public function replies()
     {
-
     	return $this->hasMany(Reply::class);
     }
 
     public function creator()
     {
-
     	return $this->belongsTo(User::class, 'user_id');
     }
 
     public function addReply($reply)
     {
-
         $this->replies()->create($reply);
     }
 
@@ -55,7 +50,6 @@ class Thread extends Model
 
     public function scopeFilter($query, $filters)
     {
-
         return $filters->apply($query);
     }
 }
