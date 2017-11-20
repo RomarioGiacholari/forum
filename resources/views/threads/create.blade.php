@@ -7,7 +7,6 @@
         <div class="col-md-12 col-md-offset-0 ">
                 <h3><strong>Post a question</strong></h3>
                 <hr>
-                     
                     <form action="/threads" method="POST">
                         {{csrf_field()}}
 
@@ -39,15 +38,12 @@
                      </form>
 
                      @if(count($errors))
- 
                         <ol class ="text-center" >
                         @foreach($errors->all() as $error)
                             <p style='color:red'>{{$error}}</p>
                         @endforeach
                         </ol>
-
                      @endif
-
             </div>
         </div>
     </div>

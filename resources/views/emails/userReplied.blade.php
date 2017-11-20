@@ -24,7 +24,6 @@
     <div class="col-md-12">
         <h1>Discusslab</h1>
         <hr>
-        
         <blockquote>{{$user->name}} replied to the thread. <a href="www.discusslab.com/{{$thread->path()}}">Visit the thread.</a></blockquote>
     </div>
 </div>

@@ -5,9 +5,7 @@
 <div class="row">
 <div class="col-md-12 col-md-offset-0">
  <h3><strong>Update reply</strong></h3>
-
  <hr>
-
 <div class="panel panel-default">
    <div class="panel-heading">
      <div class="level">
@@ -15,41 +13,32 @@
         	<a href="{{route('profile', $reply->owner)}}" >{{$reply->owner->name}}</a> said {{$reply->created_at->diffForHumans()}} ...
         </h5>
 		     <div>
-		     	
 			     <form method='POST' action="/replies/{{$reply->id}}/favorites">
 			     	{{csrf_field()}}
-
 					 <button type ='submit' class ='btn btn-primary btn-sm ' {{$reply->isFavorited() ? 'disabled' : '' }}>
-					 
 					 {{$reply->favorites()->count()}} <i class="fa fa-heart" aria-hidden="true"></i>
-
 					 </button>
-
 			     </form>
-
 		     </div>
      	</div>
      </div>	
 
   	<form action="{{route('update_reply',$reply->id)}}" method="POST">
-                        {{csrf_field()}}
-	                        {{method_field('PATCH')}}
+    {{csrf_field()}}
+	{{method_field('PATCH')}}
 	     <div class="panel-body">
 	        <textarea class="form-control" name="body" id="body" rows="4" required>{{$reply->body}}</textarea>
 	     </div>
-
 	        <button type="submit" class="btn btn-primary btn-block ">Update</button>
      </form>
 
       @if(count($errors))
- 
-                        <ol class ="text-center" >
-                        @foreach($errors->all() as $error)
-                            <p style='color:red'>{{$error}}</p>
-                        @endforeach
-                        </ol>
-       @endif
-
+      <ol class ="text-center" >
+            @foreach($errors->all() as $error)
+              <p style='color:red'>{{$error}}</p>
+           @endforeach
+        </ol>
+      @endif   
  </div>
  </div>
  </div>

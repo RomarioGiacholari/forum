@@ -7,7 +7,6 @@
         <div class="col-md-12 col-md-offset-0 ">
                 <h3><strong>Update question</strong></h3>
                 <hr>
-                     
                     <form action="{{route('update_thread',$thread->id)}}" method="POST">
                         {{csrf_field()}}
                         {{method_field('PATCH')}}
@@ -21,7 +20,6 @@
                             @endforeach
                             </select>
                         </div>
-
 
                         <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                          <label for="title">Title:</label>
@@ -38,17 +36,13 @@
                         </div>
 
                      </form>
-
                      @if(count($errors))
- 
                         <ol class ="text-center" >
                         @foreach($errors->all() as $error)
                             <p style='color:red'>{{$error}}</p>
                         @endforeach
                         </ol>
-
                      @endif
-
             </div>
         </div>
     </div>
