@@ -27,7 +27,7 @@ class Reply extends Model
    }
 
    public function favorite()
-    {
+   {
        $attributes = ['user_id' => auth()->id()]; 
 
        if(! $this->favorites()->where($attributes)->exists()){

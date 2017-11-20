@@ -34,11 +34,6 @@
     </div>
 @endforeach
 {{$threads->links()}}
-
-    @foreach($replies as $reply)
-        @include('threads.reply',$reply)
-    @endforeach
-
 </div>
 
 @endsection

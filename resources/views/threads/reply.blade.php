@@ -20,8 +20,6 @@
 		     </div>
      	</div>
      </div>	
-
-
      <div class="panel-body">
         {{$reply->body}}
      </div>
@@ -35,5 +33,4 @@
                     <a href="{{route('edit_reply',$reply->id)}}">edit</a>
                 </div>
        @endcan
-
  </div>
