@@ -18,6 +18,7 @@ class ThreadController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param ThreadFilters $filters
      * @return \Illuminate\Http\Response
      */
     public function index(ThreadFilters $filters)
