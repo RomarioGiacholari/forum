@@ -13,20 +13,22 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
+Vue.component('flash', require('./components/Flash.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
-$(document).ready(function() {
-$('#pinBoot').pinterest_grid({
-no_columns: 4,
-padding_x: 10,
-padding_y: 10,
-margin_bottom: 50,
-single_column_breakpoint: 700
+const app = new Vue({
+    el: '#app'
 });
-});
+
+
+    $(document).ready(function() {
+        $('#pinBoot').pinterest_grid({
+        no_columns: 4,
+        padding_x: 10,
+        padding_y: 10,
+        margin_bottom: 50,
+        single_column_breakpoint: 700
+        });
+    });
 
 /*
 Ref:

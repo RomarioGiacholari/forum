@@ -19,6 +19,6 @@ class FavoriteController extends Controller
 
     	$reply->favorite();
 
-    	return back();
+    	return back()->with('flash','Liked');
     }
 }

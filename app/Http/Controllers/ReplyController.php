@@ -61,7 +61,7 @@ class ReplyController extends Controller
             \Mail::to($thread->creator->email)->send(new UserReplied($thread,auth()->user()));
         }
 
-        return back();
+        return back()->with('flash','Your reply has been submitted');
 
     }
 
@@ -108,7 +108,7 @@ class ReplyController extends Controller
 
         $reply->update($request->all());
 
-        return redirect($reply->thread->path());
+        return redirect($reply->thread->path())->with('flash','The reply was successfully updated');
     }
 
     /**
@@ -123,6 +123,6 @@ class ReplyController extends Controller
         
         $reply->delete();
 
-        return back();
+        return back()->with('flash','Your reply was deleted');
     }
 }
