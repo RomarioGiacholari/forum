@@ -9,7 +9,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class FavoritesTest extends TestCase
 {
 
-
     use DatabaseTransactions;
 
     /** @test */

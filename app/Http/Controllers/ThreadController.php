@@ -51,7 +51,6 @@ class ThreadController extends Controller
     public function store(Request $request)
     {
 
-
         $this->validate($request, [
 
             'title' => 'required|max:15',
@@ -69,7 +68,7 @@ class ThreadController extends Controller
 
             ]);
 
-        return redirect($thread->path());    
+        return redirect($thread->path())->with('flash','Your thread has been created');    
     }
 
     /**
@@ -122,7 +121,7 @@ class ThreadController extends Controller
 
         $thread->update($request->all());
 
-        return redirect(route('profile',auth()->user()->name));
+        return redirect(route('profile',auth()->user()->name))->with('flash','The thread was updated');
     }
 
     /**
@@ -137,6 +136,6 @@ class ThreadController extends Controller
         
         $thread->delete();
 
-        return back();
+        return back()->with('flash','The thread was successfully deleted');
     }
 }
