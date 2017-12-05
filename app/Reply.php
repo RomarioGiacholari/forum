@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Reply extends Model
 {
    protected $guarded = [];
-   
+
+   protected static function boot()
+   {
+       parent::boot();
+
+       static::deleting(function($reply) { // before delete() method call this
+           $reply->favorites()->delete();
+      });
+   }
+
    public function owner()
    {
    		return $this->belongsTo(User::class, 'user_id');
