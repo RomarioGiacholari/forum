@@ -14,6 +14,7 @@ require('./bootstrap');
  */
 
 Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('favorite',require('./components/Favorite.vue'));
 
 const app = new Vue({
     el: '#app'
