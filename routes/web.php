@@ -15,7 +15,8 @@
 
 Auth::routes();
 
-Route::get('/', 'ThreadController@index');
+// To do : create a landing page.
+Route::get('/','ThreadController@index');
 Route::get('/threads','ThreadController@index');
 Route::delete('/threads/{thread}','ThreadController@destroy')->name('delete_thread');
 Route::get('/threads/{thread}/edit','ThreadController@edit')->name('edit_thread');

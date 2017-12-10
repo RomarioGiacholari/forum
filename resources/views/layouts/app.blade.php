@@ -27,15 +27,15 @@
 </head>
 <body>
   <div id="mySidenav">
-    <a href="/threads/create" class="ask-button w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+    <a href="/threads/create" class="ask-button w3-bar-item w3-button" title="post a question"><i class="fa fa-comment"></i></a>
   </div>
 
   <div class="w3-container navbar navbar-fixed-top" >
   <div class="w3-bar w3-light-grey w3-border w3-large">
-    <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
+    <a href="/threads" class="w3-bar-item w3-button w3-black" title="home page"><i class="fa fa-home"></i></a>
   
-    <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true"><i class="fa fa-info" ></i></a>
-    <div class="w3-dropdown-click">
+    <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true" title="information about the page"><i class="fa fa-info" ></i></a>
+    <div class="w3-dropdown-click" title="browse topics">
         <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           @foreach($channels as $channel)
@@ -48,9 +48,9 @@
     <div class="w3-dropdown-hover">
         <button class="w3-button"><i class="fa fa-user"></i></button>
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
-        <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i>profile</i></a>
-        <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
+        <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button" title="see your threads"><i>my</i></a>
+        <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button" title="profile"><i>profile</i></a>
+        <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment" title="post a question"></i></a>
         </div>
       </div>
   
@@ -69,13 +69,13 @@
     @endif
   </div>
   </div>
-    <div id="app">
+     <div id="app">
        @yield('content') 
       <!-- Vue flash component -->
         <flash message="{{ session('flash') }}"></flash>
       <!-- modal partial -->
         @include('partials.modal')
-
+      </div>
       <!-- Scripts -->
       <script src="{{ asset('js/app.js') }}"></script>
       <script type="text/javascript">
@@ -94,7 +94,7 @@
           if (x.className.indexOf("w3-show") == -1) {  
               x.className += " w3-show";
           } else { 
-              x.className = x.className.replace(" w3-show", "");
+              x.className = x.className.replace(" w3-show", " ");
           }
         }
       
