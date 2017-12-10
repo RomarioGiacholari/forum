@@ -69,9 +69,8 @@
     @endif
   </div>
   </div>
-    @yield('content') 
     <div id="app">
-
+       @yield('content') 
       <!-- Vue flash component -->
         <flash message="{{ session('flash') }}"></flash>
       <!-- modal partial -->

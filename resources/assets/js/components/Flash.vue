@@ -19,13 +19,12 @@
        },
 
        created() {
-           if(this.message){
-               this.flash(this.message);
-           }
-
-           window.event.$on('flash', message =>{
-               this.flash(message);
-           });
+         if (this.message) {
+                this.flash();
+            }
+            window.events.$on(
+                'flash', data => this.flash(data)
+            );
        },
 
        methods:{
