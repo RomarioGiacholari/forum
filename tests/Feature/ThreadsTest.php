@@ -90,4 +90,20 @@ class ThreadsTest extends TestCase
         $response = $this->getJson('/threads?popular=1')->json();
         $this->assertEquals([3,2,0], array_column($response,'replies_count'));
     }
+
+    
+    //It fails because the testing DB is MySql. On production PgSql works fine.
+    
+    // /** @test*/
+    // public function a_user_can_serach_threads_by_title()
+    // {
+
+    //     $thread = create('App\Thread',[
+    //         'title' => 'myTitle'
+    //     ]);
+        
+    //     $this->get('search?q=myTitle')
+    //     ->assertSee($thread->body);
+
+    // }
 }
