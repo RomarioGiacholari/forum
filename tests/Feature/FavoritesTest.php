@@ -55,5 +55,30 @@ class FavoritesTest extends TestCase
         $this->assertCount(1,$reply->favorites);
     }
 
+    /** @test */
+    public function an_authenticated_user_can_dislike_any_reply()
+    {
+
+        //sign in a user
+        $this->signIn();
+        
+        //create a reply
+        $reply = create('App\Reply');
+
+        //prepare the endpoint
+        $endpoint = 'replies/'. $reply->id. '/favorites';
+
+        //post to the endpoint == like the reply
+        $this->post($endpoint);
+
+        $this->assertCount(1,$reply->favorites);
+
+        //delete to the endpoint == dilsike the reply
+        $this->delete($endpoint);
+
+        $this->assertCount(0,$reply->fresh()->favorites);
+
+    }
+    
     
 }

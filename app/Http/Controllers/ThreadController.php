@@ -29,7 +29,7 @@ class ThreadController extends Controller
 
             return $threads;
         }
-
+        
         return view('threads.index', compact('threads'));
     }
 
