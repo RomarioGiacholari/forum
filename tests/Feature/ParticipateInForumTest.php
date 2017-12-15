@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ParticipateInForumTest extends TestCase
 {
 
- use DatabaseTransactions;
+    use DatabaseTransactions;
 
 
     /**  @test */

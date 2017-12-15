@@ -10,7 +10,7 @@ class ThreadsTest extends TestCase
 {
 
 
- use DatabaseTransactions;
+    use DatabaseTransactions;
 
     public function setUp(){
 

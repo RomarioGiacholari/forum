@@ -12,6 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
 
     <title>{{ config('app.name', 'Forum') }}</title>
 
@@ -26,96 +27,78 @@
     </script>
 </head>
 <body>
-<div id="mySidenav">
-  <a href="/threads/create" class="ask-button w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
-</div>
-
-<div class="w3-container navbar navbar-fixed-top" >
-<div class="w3-bar w3-light-grey w3-border w3-large">
-  <a href="/threads" class="w3-bar-item w3-button w3-black"><i class="fa fa-home"></i></a>
- 
-  <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true"><i class="fa fa-info" ></i></a>
-   <div class="w3-dropdown-click">
-      <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-        @foreach($channels as $channel)
-        <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
-       @endforeach
-       <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
-      </div>
-    </div>
-  @if(auth()->check())
-  <div class="w3-dropdown-hover">
-      <button class="w3-button"><i class="fa fa-user"></i></button>
-      <div class="w3-dropdown-content w3-bar-block w3-card-4">
-      <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button"><i>my</i></a>
-      <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button"><i>profile</i></a>
-      <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment"></i></a>
-      </div>
-    </div>
- 
- @endif
- @if(Auth::guest())
-  <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
-  <a href="{{ route('register') }}" class="w3-bar-item w3-button"><i>register</i></a>
-  @else
-
-<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"><i class="fa fa-power-off"></i></a>
-  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    
-    {{ csrf_field() }}
-  </form>
-
-  @endif
-</div>
-</div>
-
-        @yield('content') 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"><strong>About Discusslab</strong></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-           Thank you for stopping by. Discusslab is a side project that I have been working lately. I've built this web app in order to sharpen my programming skills. However, feel comfortable to post any questions. You can find me on LinkedIn <a href = 'https://www.linkedin.com/in/romario-giacholari-71130b11b?trk=hp-identity-name' target="_blank">Romario Giacholari</a>. 
-         <!--   <div class="text-center">
-           <img src="https://s3.eu-west-2.amazonaws.com/aston-room/astonroom/14979789202016-05-08%2005.07.27.jpg" alt="Romario Giacholari" style="height:100px;width:100px;border-radius:50%">
-           </div> -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
+  <div id="mySidenav">
+    <a href="/threads/create" class="ask-button w3-bar-item w3-button" title="post a question"><i class="fa fa-comment"></i></a>
   </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script type="text/javascript">
-    
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  <div class="w3-container navbar navbar-fixed-top" >
+  <div class="w3-bar w3-light-grey w3-border w3-large">
+    <a href="/threads" class="w3-bar-item w3-button w3-black" title="home page"><i class="fa fa-home"></i></a>
+  
+    <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true" title="information about the page"><i class="fa fa-info" ></i></a>
+    <div class="w3-dropdown-click" title="browse topics">
+        <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+          @foreach($channels as $channel)
+          <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
+        @endforeach
+        <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
+        </div>
+      </div>
+    @if(auth()->check())
+    <div class="w3-dropdown-hover">
+        <button class="w3-button"><i class="fa fa-user"></i></button>
+        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="/threads?by={{auth()->user()->name}}" class="w3-bar-item w3-button" title="see your threads"><i>my</i></a>
+        <a href="{{route('profile', auth()->user()->name)}}" class="w3-bar-item w3-button" title="profile"><i>profile</i></a>
+        <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment" title="post a question"></i></a>
+        </div>
+      </div>
+  
+  @endif
+  @if(Auth::guest())
+    <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
+    <a href="{{ route('register') }}" class="w3-bar-item w3-button"><i>register</i></a>
+    @else
 
-    ga('create', 'UA-90120268-2', 'auto');
-    ga('send', 'pageview');
+  <a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"><i class="fa fa-power-off"></i></a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      
+      {{ csrf_field() }}
+    </form>
+
+    @endif
+  </div>
+  </div>
+     <div id="app">
+       @yield('content') 
+      <!-- Vue flash component -->
+        <flash message="{{ session('flash') }}"></flash>
+      <!-- modal partial -->
+        @include('partials.modal')
+      </div>
+      <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}"></script>
+      <script type="text/javascript">
+      
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-90120268-2', 'auto');
+      ga('send', 'pageview');
 
 
-     function toggleCaret() {
-        var x = document.querySelector(".w3-dropdown-content");
-        if (x.className.indexOf("w3-show") == -1) {  
-            x.className += " w3-show";
-        } else { 
-            x.className = x.className.replace(" w3-show", "");
+      function toggleCaret() {
+          var x = document.querySelector(".w3-dropdown-content");
+          if (x.className.indexOf("w3-show") == -1) {  
+              x.className += " w3-show";
+          } else { 
+              x.className = x.className.replace(" w3-show", " ");
+          }
         }
-      }
-    
-  </script>
+      
+    </script>
 </body>
 </html>

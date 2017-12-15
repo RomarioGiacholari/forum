@@ -13,45 +13,24 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
+Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('favorite',require('./components/Favorite.vue'));
 
-// const app = new Vue({
-//     el: '#app'
-// });
-$(document).ready(function() {
-$('#pinBoot').pinterest_grid({
-no_columns: 4,
-padding_x: 10,
-padding_y: 10,
-margin_bottom: 50,
-single_column_breakpoint: 700
-});
+const app = new Vue({
+    el: '#app'
 });
 
-/*
-Ref:
-Thanks to:
-http://www.jqueryscript.net/layout/Simple-jQuery-Plugin-To-Create-Pinterest-Style-Grid-Layout-Pinterest-Grid.html
-*/
 
-
-/*
-    Pinterest Grid Plugin
-    Copyright 2014 Mediademons
-    @author smm 16/04/2014
-
-    usage:
-
-     $(document).ready(function() {
-
-        $('#blog-landing').pinterest_grid({
-            no_columns: 4
+    $(document).ready(function() {
+        $('#pinBoot').pinterest_grid({
+        no_columns: 3,
+        padding_x: 10,
+        padding_y: 10,
+        margin_bottom: 50,
+        single_column_breakpoint: 700
         });
-
     });
 
-
-*/
 ;(function ($, window, document, undefined) {
     var pluginName = 'pinterest_grid',
         defaults = {
