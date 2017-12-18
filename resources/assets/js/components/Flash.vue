@@ -1,9 +1,7 @@
 <template>
-
     <div class="alert alert-success flash-message" role="alert" v-show="show">
         <strong>Success!</strong> {{ body }}.
     </div>
-
 </template>
 
 <script>
@@ -51,5 +49,4 @@
         right:0;
         bottom:0;
     }
-
 </style>
