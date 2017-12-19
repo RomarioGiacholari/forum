@@ -35,7 +35,7 @@
   <div class="w3-bar w3-light-grey w3-border w3-large">
     <a href="/threads" class="w3-bar-item w3-button w3-black" title="home page"><i class="fa fa-home"></i></a>
     <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#exampleModalLong" aria-hidden="true" title="information about the page"><i class="fa fa-info" ></i></a>
-    <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#searchModalLong" aria-hidden="true" title="search"><i class="fa fa-search" ></i></a>
+    <!-- <a href ='#' class="w3-bar-item w3-button" data-toggle="modal" data-target="#searchModalLong" aria-hidden="true" title="search"><i class="fa fa-search" ></i></a> -->
     <div class="w3-dropdown-click" title="browse topics">
         <button onclick="toggleCaret()"class="w3-button"><i class="fa fa-caret-down" aria-hidden="true"></i></button>
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
