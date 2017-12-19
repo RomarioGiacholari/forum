@@ -41,7 +41,7 @@
         <div class="w3-dropdown-content w3-bar-block w3-card-4">
           @foreach($channels as $channel)
           <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
-        @endforeach
+         @endforeach
         <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
         </div>
       </div>
@@ -54,7 +54,6 @@
         <a href="/threads/create" class="w3-bar-item w3-button"><i class="fa fa-comment" title="post a question"></i></a>
         </div>
       </div>
-  
   @endif
   @if(Auth::guest())
     <a href="{{ route('login') }}" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i></a>
