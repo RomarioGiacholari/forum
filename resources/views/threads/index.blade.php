@@ -17,6 +17,7 @@
                 <div class="panel-body">
                    <p id="thread-text">{{$thread->body}}</p>
                 </div>
+                <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a>
             </div>
         @empty
         <blockquote>There are no posts yet listed for this category.</blockquote>
