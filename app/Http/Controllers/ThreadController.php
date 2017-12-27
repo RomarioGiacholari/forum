@@ -24,7 +24,7 @@ class ThreadController extends Controller
      */
     public function index(ThreadFilters $filters)
     {
-        $threads = Thread::filter($filters)->get();
+        $threads = Thread::with('channel','creator')->filter($filters)->get();
 
         if(request()->wantsJson()){
 
@@ -84,7 +84,7 @@ class ThreadController extends Controller
         return view('threads.show',[
 
             'thread' => $thread,
-            'replies' => $thread->replies()->paginate(20)
+            'replies' => $thread->replies()->with('owner')->paginate(20)
 
             ]);
     }
