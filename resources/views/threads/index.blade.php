@@ -8,7 +8,7 @@
                  <div class='flex'>
                   <h4><strong><a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a></strong></h4>
                    <a style="color:#E0000F" href= "{{$thread->path()}}">Answer <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
-                   Topic: <a class="{{$thread->channel->name}}" href="/threads/{{$thread->channel->slug}}">{{$thread->channel->name}}</a>
+                   Topic: <span class="{{$thread->channel->name}}">{{$thread->channel->name}}</span>
                  </div>
                  <a href="{{$thread->path()}}">
                  {{$thread->replies_count}} <i class="fa fa-reply" aria-hidden="true"></i>
