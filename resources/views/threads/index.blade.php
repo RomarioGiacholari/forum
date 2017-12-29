@@ -6,7 +6,7 @@
             <div class="white-panel">
                 <div class ='level'>
                  <div class='flex'>
-                  <h4><strong><a style='color:black' href = "{{$thread->path()}}">{{$thread->title}}</a></strong></h4>
+                  <h4><strong><a href = "{{$thread->path()}}">{{$thread->title}}</a></strong></h4>
                    <a style="color:#E0000F" href= "{{$thread->path()}}">Answer <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
                    Topic: <span class="{{$thread->channel->name}}">{{$thread->channel->name}}</span>
                  </div>

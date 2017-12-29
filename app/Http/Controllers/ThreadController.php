@@ -23,7 +23,7 @@ class ThreadController extends Controller
      */
     public function index(ThreadFilters $filters)
     {
-        $threads = Thread::with('channel','creator')->filter($filters)->get();
+        $threads = Thread::with('channel','creator')->filter($filters)->latest()->get();
 
         if(request()->wantsJson()){
 
@@ -60,7 +60,7 @@ class ThreadController extends Controller
 
             ]);
 
-        $thread = Thread::create([
+        $thread = new Thread([
 
             'user_id' => auth()->id(),
             'channel_id' => request('channel_id'),
@@ -68,6 +68,8 @@ class ThreadController extends Controller
             'body' => request('body')
 
             ]);
+
+        $thread->save();
 
         return redirect($thread->path())->with('flash','Your thread has been created');    
     }
