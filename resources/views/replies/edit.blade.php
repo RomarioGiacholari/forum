@@ -22,7 +22,7 @@
     {{csrf_field()}}
 	{{method_field('PATCH')}}
 	     <div class="panel-body">
-	        <textarea class="form-control" name="body" id="body" rows="4" required>{{$reply->body}}</textarea>
+	        <textarea class="form-control" name="body" id="body" rows="6" required>{{$reply->body}}</textarea>
 	     </div>
 	        <button type="submit" class="btn btn-primary btn-block ">Update</button>
      </form>
