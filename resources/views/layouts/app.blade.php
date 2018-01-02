@@ -42,7 +42,8 @@
           @foreach($channels as $channel)
           <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
          @endforeach
-        <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
+        <a href="/threads?popular=1" class="w3-bar-item w3-button">popular</a>
+        <a href="/threads" class="w3-bar-item w3-button">all threads</a>
         </div>
       </div>
     @if(auth()->check())
