@@ -2,68 +2,73 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                <h3 style='overflow:hidden;'>
-                <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a> <span style="color:black;">posted:</span>
-                {{$thread->title}}
-                </h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 style='overflow:hidden;'>
+                            <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a> <span
+                                    style="color:black;">posted:</span>
+                            {{$thread->title}}
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <strong>{{$thread->body}}</strong>
+                    </div>
+
                 </div>
-            <div class="panel-body">
-                   <strong>{{$thread->body}}</strong>
-                </div>
 
-            </div>
-     
-       @foreach($replies as $reply)
-            @include('threads.reply')
-        @endforeach
-     
-        {{$replies->links()}}
+                @foreach($replies as $reply)
+                    @include('threads.reply')
+                @endforeach
 
-      @if(auth()->check())
-            <form action = "{{$thread->path() .'/replies'}}" method = 'POST'>
+                {{$replies->links()}}
 
-            {{ csrf_field() }}
+                @if(auth()->check())
+                    <form action="{{$thread->path() .'/replies'}}" method='POST'>
 
-            <div class = 'form-group'>
-            <textarea name ='body' id ='body' class ='form-control' placeholder="Have something to say?" rows="5" required=""></textarea>
-            </div>
+                        {{ csrf_field() }}
 
-            <div class = 'form-group'>
-            <button type ='submit' class ="btn btn-primary btn-block form-control">Post</button>
-            </div>
+                        <div class='form-group'>
+                            <textarea name='body' id='body' class='form-control' placeholder="Have something to say?"
+                                      rows="5" required=""></textarea>
+                        </div>
 
-            </form>
+                        <div class='form-group'>
+                            <button type='submit' class="btn btn-primary btn-block form-control">Post</button>
+                        </div>
 
-             @if(count($errors))
-                        <ol class ="text-center" >
-                        @foreach($errors->all() as $error)
-                            <p style='color:red'>{{$error}}</p>
-                        @endforeach
+                    </form>
+
+                    @if(count($errors))
+                        <ol class="text-center">
+                            @foreach($errors->all() as $error)
+                                <p style='color:red'>{{$error}}</p>
+                            @endforeach
                         </ol>
-             @endif
-     
-        @else
+                    @endif
 
-    <a href="{{route('login')}}"><strong><u><p class ='text-center'>Please sign in to participate in this discussion</p></u></strong></a>
+                @else
 
-    @endif
-   </div>
+                    <a href="{{route('login')}}"><strong><u><p class='text-center'>Please sign in to participate in this
+                                    discussion</p></u></strong></a>
+
+                @endif
+            </div>
 
 
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                  <p>
-                  The thread was published {{$thread->created_at->diffForHumans()}} by <a href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a>, and currently has {{$thread->replies_count}} {{str_plural('comment', $thread->replies_count)}}.
-                  </p>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            The thread was published {{$thread->created_at->diffForHumans()}} by <a
+                                    href="{{route('profile', $thread->creator)}}">{{$thread->creator->name}}</a>, and
+                            currently has {{$thread->replies_count}} {{str_plural('comment', $thread->replies_count)}}.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-</div>
-
+    </div>
 @endsection

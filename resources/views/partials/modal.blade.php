@@ -9,7 +9,7 @@
               </button>
             </div>
             <div class="modal-body">
-              Thank you for stopping by. Discusslab is a side project that I have been working lately. I've built this web app in order to sharpen my programming skills. However, feel comfortable to post any questions. You can find me on LinkedIn <a href = 'https://www.linkedin.com/in/romario-giacholari-71130b11b?trk=hp-identity-name' target="_blank">Romario Giacholari</a>. 
+              Thank you for stopping by. Discusslab is a side project that I have been working on lately. I've built this web app in order to sharpen my programming skills. However, feel comfortable to post any questions. You can find me on LinkedIn <a href = 'https://www.linkedin.com/in/romario-giacholari-71130b11b?trk=hp-identity-name' target="_blank">Romario Giacholari</a>. 
             <!--   <div class="text-center">
               <img src="https://s3.eu-west-2.amazonaws.com/aston-room/astonroom/14979789202016-05-08%2005.07.27.jpg" alt="Romario Giacholari" style="height:100px;width:100px;border-radius:50%">
               </div> -->

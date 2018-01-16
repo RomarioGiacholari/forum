@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <!-- favicon icon link -->
-     <link rel="icon" href="discusslab.png" type="image/gif" sizes="16x16">
+     <link rel="icon" href="{{ asset('discusslab.png') }}" type="image/gif" sizes="16x16">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -42,7 +42,8 @@
           @foreach($channels as $channel)
           <a href="/threads/{{$channel->slug}}" class=" {{$channel->slug}} w3-bar-item w3-button"><i></i>{{$channel->name}}</a>
          @endforeach
-        <a href="/threads?popular=1" class="w3-bar-item w3-button"><i class="fa fa-heart"></i></a>
+        <a href="/threads?popular=1" class="w3-bar-item w3-button">popular</a>
+        <a href="/threads" class="w3-bar-item w3-button">all threads</a>
         </div>
       </div>
     @if(auth()->check())
