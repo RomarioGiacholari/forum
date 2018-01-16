@@ -75,7 +75,6 @@
         <flash message="{{ session('flash') }}"></flash>
       <!-- modal partial -->
         @include('partials.modal')
-        @include('partials.searchModal')
       </div>
       <!-- Scripts -->
       <script src="{{ asset('js/app.js') }}"></script>
