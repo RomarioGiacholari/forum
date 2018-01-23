@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Auth::routes();
 
 // To do : create a landing page.
@@ -36,3 +34,5 @@ Route::get('/replies/{reply}/edit','ReplyController@edit')->name('edit_reply');
 Route::patch('/replies/{reply}','ReplyController@update')->name('update_reply');
 
 Route::get('profiles/{user}', 'ProfileController@show')->name('profile');
+
+Route::get('search','SearchController@search');
