@@ -49,7 +49,7 @@ class ReplyController extends Controller
 
             ]);
         
-        $thread->addReply([
+        $reply = $thread->addReply([
 
             'body' => request('body'),
             'user_id' => auth()->id()
@@ -59,6 +59,11 @@ class ReplyController extends Controller
         if(! $thread->creator->id == auth()->id()){
 
             \Mail::to($thread->creator->email)->send(new UserReplied($thread,auth()->user()));
+        }
+
+        
+         if (request()->expectsJson()) {
+                return $reply->load('owner');
         }
 
         return back()->with('flash','Your reply has been submitted');
@@ -84,9 +89,9 @@ class ReplyController extends Controller
      */
     public function edit(Reply $reply)
     {
-        $this->authorize('update', $reply);
+        // $this->authorize('update', $reply);
 
-        return view('replies.edit',compact('reply'));
+        // return view('replies.edit',compact('reply'));
     }
 
     /**
@@ -108,7 +113,6 @@ class ReplyController extends Controller
 
         $reply->update($request->all());
 
-        return redirect($reply->thread->path())->with('flash','The reply was successfully updated');
     }
 
     /**
@@ -123,6 +127,5 @@ class ReplyController extends Controller
         
         $reply->delete();
 
-        return back()->with('flash','Your reply was deleted');
     }
 }
