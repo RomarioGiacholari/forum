@@ -10,9 +10,9 @@
                    <a style="color:#E0000F" href= "{{$thread->path()}}">Answer <i class="fa fa-paper-plane" aria-hidden="true"></i></a>
                    Topic: <span class="{{$thread->channel->name}}">{{$thread->channel->name}}</span>
                  </div>
-                 <a href="{{$thread->path()}}">
-                 {{$thread->replies_count}} <i class="fa fa-reply" aria-hidden="true"></i>
-                 </a>
+                 <div>
+                 {{$thread->replies_count}}  <i class="fa fa-comment" aria-hidden="true"></i>
+                 </div>
                 </div>
                 <div class="panel-body">
                    <p id="thread-text">{{$thread->body}}</p>
