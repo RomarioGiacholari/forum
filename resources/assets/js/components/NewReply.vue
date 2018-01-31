@@ -46,6 +46,9 @@
 
         addReply() {
             axios.post(this.endpoint, { body: this.body })
+                .catch(error => {
+                       flash(error.response.data.body);
+                    })
                     .then(({data}) => {
                          this.body = '';
                        
