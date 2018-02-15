@@ -19,7 +19,7 @@
         },
         created() {
             if (this.message) {
-                this.flash(this.message);
+                this.flash();
             }
             window.events.$on(
                 'flash', data => this.flash(data)
