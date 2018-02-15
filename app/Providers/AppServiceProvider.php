@@ -21,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // \View::share('channels', Channel::all());
+        if(Channel::count() > 0){
+            \View::share('channels', Channel::all());
+        }
     }
 
     /**
