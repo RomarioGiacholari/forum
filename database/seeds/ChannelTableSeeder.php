@@ -14,8 +14,8 @@ class ChannelTableSeeder extends Seeder
     {
         Channel::create([
 
-            'name' => 'technology',
-            'slug' => 'tech'
+            'name' => 'art',
+            'slug' => 'art'
         ]);
     }
 }
