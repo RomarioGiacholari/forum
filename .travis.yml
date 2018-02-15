@@ -8,6 +8,8 @@ before_script:
   - touch database/database.sqlite
   - composer self-update
   - composer install --no-interaction
+  - php artisan migrate
+  - php artisan db:seed
 
 script:
   - php artisan key:generate
