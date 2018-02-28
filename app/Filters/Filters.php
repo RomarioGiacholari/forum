@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 abstract class Filters 
 {
 
-    protected $request;
+	protected $request;
+	
+	protected $builder;
 
 	protected $filters = [];
 
