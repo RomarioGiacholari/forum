@@ -20,13 +20,17 @@
 
 <body>
 <div class="container">
-    <div class="row"></div>
-    <div class="col-md-12">
-        <h1>Discusslab</h1>
-        <hr>
-        <blockquote>{{$user->name}} replied to the thread. <a href="www.discusslab.com/{{$thread->path()}}">Visit the thread.</a></blockquote>
+    <div class="row">
+        <div class="col-md-12">
+
+            <h1>Discusslab</h1>
+
+            <hr />
+            
+            <p>{{$user->name}} replied to the thread. <a href="www.discusslab.com/{{$thread->path()}}">Visit the thread.</a></p>
+
+        </div>
     </div>
-</div>
 </div>
 </body>
 
