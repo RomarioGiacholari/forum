@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Post a question')
 @section('content')
 <body style="background-color: white">
 <div class="container">

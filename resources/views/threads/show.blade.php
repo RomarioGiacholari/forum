@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', $thread->title)
 @section('content')
 <thread-view :thread="{{ $thread }}" inline-template>
     <div class="container">
