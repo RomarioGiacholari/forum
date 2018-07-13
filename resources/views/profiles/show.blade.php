@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', $profileUser->name)
 @section('content')
 <div class="container">
     <div class="page-header">
