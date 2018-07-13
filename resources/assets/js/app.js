@@ -23,6 +23,7 @@ const app = new Vue({
 });
 
 
+
     $(document).ready(function() {
         $('#pinBoot').pinterest_grid({
         no_columns: 1,
@@ -173,4 +174,5 @@ const app = new Vue({
     }
 
 })(jQuery, window, document);
+
 
