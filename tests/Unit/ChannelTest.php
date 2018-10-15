@@ -1,32 +1,31 @@
 <?php
 
 
-
 namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-Class ChannelTest extends TestCase 
+Class ChannelTest extends TestCase
 {
 
 
-	use DatabaseTransactions;
-  
-	/** @test */
-	public function a_channel_consists_of_threads()
-	{
+    use DatabaseTransactions;
+
+    /** @test */
+    public function a_channel_consists_of_threads()
+    {
 
 
-		$channel = create('App\Channel');
+        $channel = create('App\Channel');
 
-		$thread = create('App\Thread',['channel_id' => $channel->id]);
+        $thread = create('App\Thread', ['channel_id' => $channel->id]);
 
-		$this->assertTrue($channel->threads->contains($thread));
+        $this->assertTrue($channel->threads->contains($thread));
 
 
-	}
+    }
 
 
 }

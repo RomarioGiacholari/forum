@@ -12,44 +12,40 @@ class ThreadsTest extends TestCase
 
     use DatabaseTransactions;
 
-    public function setUp(){
-
+    public function setUp()
+    {
         parent::setUp();
 
         $this->thread = create('App\Thread');
-
     }
 
-    /** @test*/
+    /** @test */
     public function a_user_can_browse_threads()
     {
-
         $response = $this->get('/threads');
 
         $response->assertSee($this->thread->title);
-   }
-     /** @test*/
+    }
+
+    /** @test */
     public function a_user_can_read_a_single_thread()
     {
-
-        
         $response = $this->get($this->thread->path());
 
         $response->assertSee($this->thread->title);
     }
 
-    /** @test*/
+    /** @test */
     public function a_user_can_read_replies_that_are_associated_with_the_thread()
     {
-        $reply = create('App\Reply',['thread_id' => $this->thread->id]);
+        $reply = create('App\Reply', ['thread_id' => $this->thread->id]);
 
-    
         $response = $this->get($this->thread->path());
 
         $response->assertSee($reply->body);
     }
 
-    /** @test*/
+    /** @test */
     public function a_user_can_filter_according_to_a_tag()
     {
         $channel = create('App\Channel');
@@ -59,28 +55,27 @@ class ThreadsTest extends TestCase
         $threadNotInChannel = create('App\Thread');
 
         $this->get('/threads/' . $channel->slug)
-             ->assertSee($threadInChannel->body)
-             ->assertDontSee($threadNotInChannel->body);
+            ->assertSee($threadInChannel->body)
+            ->assertDontSee($threadNotInChannel->body);
     }
 
-    /** @test*/
+    /** @test */
     public function a_user_can_filter_threads_by_any_username()
     {
-       $this->signIn(create('App\User', ['name' => 'JohnDoe']));
+        $this->signIn(create('App\User', ['name' => 'JohnDoe']));
 
-       $threadsByJohn = create('App\Thread', ['user_id' => auth()->id()]);
+        $threadsByJohn = create('App\Thread', ['user_id' => auth()->id()]);
 
-       $threadsNotByJohn = create('App\Thread');
+        $threadsNotByJohn = create('App\Thread');
 
-       $this->get('threads?by=JohnDoe')
+        $this->get('threads?by=JohnDoe')
             ->assertSee($threadsByJohn->body)
             ->assertDontSee($threadsNotByJohn->body);
     }
 
-    /** @test*/
+    /** @test */
     public function a_user_can_filter_threads_by_popularity()
     {
-
         $threadWithTwoReplies = create('App\Thread');
         create('App\Reply', ['thread_id' => $threadWithTwoReplies->id], 2);
 
@@ -88,12 +83,12 @@ class ThreadsTest extends TestCase
         create('App\Reply', ['thread_id' => $threadWithThreeReplies->id], 3);
 
         $response = $this->getJson('/threads?popular=1')->json();
-        $this->assertEquals([3,2,0], array_column($response,'replies_count'));
+        $this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
     }
 
-    
+
     //It fails because the testing DB is MySql. On production PgSql works fine.
-    
+
     // /** @test*/
     // public function a_user_can_serach_threads_by_title()
     // {
@@ -101,7 +96,7 @@ class ThreadsTest extends TestCase
     //     $thread = create('App\Thread',[
     //         'title' => 'myTitle'
     //     ]);
-        
+
     //     $this->get('search?q=myTitle')
     //     ->assertSee($thread->body);
 

@@ -2,38 +2,35 @@
 
 namespace App\Filters;
 
-
 use Illuminate\Http\Request;
 
-abstract class Filters 
+abstract class Filters
 {
 
-	protected $request;
-	
-	protected $builder;
+    protected $request;
 
-	protected $filters = [];
+    protected $builder;
 
-	public function __construct(Request $request)
-	{
-		$this->request = $request;
-	}
+    protected $filters = [];
 
-	public function apply($builder)
-	{
-		$this->builder = $builder;
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
 
-		foreach($this->filters as $filter){
+    public function apply($builder)
+    {
+        $this->builder = $builder;
 
-			if(method_exists($this, $filter) && $this->request->has($filter)){
+        foreach ($this->filters as $filter) {
 
-				$this->$filter($this->request->$filter);
-			}
-		}
+            if (method_exists($this, $filter) && $this->request->has($filter)) {
 
-		return $this->builder;
-	}
+                $this->$filter($this->request->$filter);
+            }
+        }
 
-
+        return $this->builder;
+    }
 
 }
