@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
-   use Favoritable;
+    use Favoritable;
 
-   protected $guarded = [];
+    protected $guarded = [];
 
-   protected $appends = ['favoritesCount','isFavorited'];
-   protected $with = ['owner'];
+    protected $appends = ['favoritesCount', 'isFavorited'];
+    protected $with = ['owner'];
 
-   public function owner()
-   {
-   	    return $this->belongsTo(User::class, 'user_id');
-   }
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-   public function thread()
-   {
+    public function thread()
+    {
         return $this->belongsTo(Thread::class);
-   }
+    }
 }

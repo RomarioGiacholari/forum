@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property mixed id
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -24,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','email',
+        'password', 'remember_token', 'email',
     ];
 
     public function getRouteKeyName()
@@ -41,5 +44,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
- 
+
 }

@@ -1,113 +1,112 @@
 <?php
 
 
-
 namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-Class ThreadsTest extends TestCase 
+Class ThreadsTest extends TestCase
 {
 
-	
-	use DatabaseTransactions;
 
-	protected $thread;
+    use DatabaseTransactions;
 
-	public function setUp()
-	{
+    protected $thread;
 
-		parent::setUp();
+    public function setUp()
+    {
 
-		$this->thread = create('App\Thread');
-	}
+        parent::setUp();
 
-	/** @test */
-	public function a_thread_has_replies()
-	{
+        $this->thread = create('App\Thread');
+    }
 
-
-		$this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
-	}
-
-	/** @test */
-	public function a_thread_has_a_creator()
-	{
+    /** @test */
+    public function a_thread_has_replies()
+    {
 
 
-		$this->assertInstanceOf('App\User', $this->thread->creator);
-	}
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->thread->replies);
+    }
 
-	/** @test */
-	public function a_thread_can_add_a_reply()
-	{
+    /** @test */
+    public function a_thread_has_a_creator()
+    {
 
-		$this->thread->addReply([
 
-			'body'=> 'Foobar',
-			'user_id' => 1
+        $this->assertInstanceOf('App\User', $this->thread->creator);
+    }
 
-			]);
-		$this->assertCount(1,$this->thread->replies);
-	}
+    /** @test */
+    public function a_thread_can_add_a_reply()
+    {
 
-	/** @test */
-	public function a_thread_belongs_ta_a_channel()
-	{
+        $this->thread->addReply([
 
-		$thread = create('App\Thread');
+            'body' => 'Foobar',
+            'user_id' => 1
 
-		$this->assertInstanceOf('App\Channel' , $thread->channel);
+        ]);
+        $this->assertCount(1, $this->thread->replies);
+    }
 
-	}
+    /** @test */
+    public function a_thread_belongs_ta_a_channel()
+    {
 
-	/** @test */
-	public function a_thread_can_make_a_string_path()
-	{
+        $thread = create('App\Thread');
 
-		$thread = create('App\Thread');
+        $this->assertInstanceOf('App\Channel', $thread->channel);
 
-		$this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}",$thread->path());
-	}
+    }
 
-	/** @test */
-	public function a_thread_can_update_itself()
-	{
+    /** @test */
+    public function a_thread_can_make_a_string_path()
+    {
 
-		$thread = create('App\Thread',[
-			'title' => 'Some title',
-			'body' => 'Some body'
-		]);
+        $thread = create('App\Thread');
 
-		$this->assertEquals('Some title', $thread->title);
+        $this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}", $thread->path());
+    }
 
-		$thread->update(['title' => 'updated']);
+    /** @test */
+    public function a_thread_can_update_itself()
+    {
 
-		$this->assertEquals('updated', $thread->title);
+        $thread = create('App\Thread', [
+            'title' => 'Some title',
+            'body' => 'Some body'
+        ]);
 
-		$this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}",$thread->path());
-	}
+        $this->assertEquals('Some title', $thread->title);
 
-	/**@test */
-	public function a_threads_replies_are_deleted_when_a_thread_is_deleted()
-	{
-		$this->thread->addReply([
-			'body'=> 'Foobar',
-			'user_id' => 1
-			]);
+        $thread->update(['title' => 'updated']);
 
-		$this->assertCount(1,$this->thread->replies);
+        $this->assertEquals('updated', $thread->title);
 
-		$this->thread->delete();
+        $this->assertEquals("/threads/{$thread->channel->slug}/{$thread->id}", $thread->path());
+    }
 
-		$this->assertCount(0,$this->thread->replies);
-		$this->assertDatabaseMissing('replies',[
-			'body'=> 'Foobar',
-			'user_id' => 1
-			]);
+    /**@test */
+    public function a_threads_replies_are_deleted_when_a_thread_is_deleted()
+    {
+        $this->thread->addReply([
+            'body' => 'Foobar',
+            'user_id' => 1
+        ]);
 
-	}
+        $this->assertCount(1, $this->thread->replies);
 
-	
+        $this->thread->delete();
+
+        $this->assertCount(0, $this->thread->replies);
+        $this->assertDatabaseMissing('replies', [
+            'body' => 'Foobar',
+            'user_id' => 1
+        ]);
+
+    }
+
+
 }

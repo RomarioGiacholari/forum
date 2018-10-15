@@ -13,30 +13,30 @@ class Thread extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('replyCount', function($builder){
+        static::addGlobalScope('replyCount', function ($builder) {
 
             $builder->withCount('replies');
 
         });
 
-        static::deleting(function($thread) { // before delete() method call this
+        static::deleting(function ($thread) { // before delete() method call this
             $thread->replies()->delete();
-       });
+        });
     }
 
     public function path()
     {
-    	return "/threads/{$this->channel->slug}/{$this->id}";
+        return "/threads/{$this->channel->slug}/{$this->id}";
     }
 
     public function replies()
     {
-    	return $this->hasMany(Reply::class);
+        return $this->hasMany(Reply::class);
     }
 
     public function creator()
     {
-    	return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function addReply($reply)

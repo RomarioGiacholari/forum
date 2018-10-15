@@ -1,19 +1,24 @@
 <?php
+
 namespace Tests;
+
 use App\Exceptions\Handler;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+
     protected function setUp()
     {
         parent::setUp();
         $this->disableExceptionHandling();
     }
+
     protected function signIn($user = null)
     {
-        $user = $user ?: create('App\User');
+        $user = $user ?: create(\App\User::class);
         $this->actingAs($user);
         return $this;
     }
@@ -32,17 +37,19 @@ abstract class TestCase extends BaseTestCase
     }
 }
 
-    class TestHandler extends Handler
-	{
-	    public function __construct()
-	    {
-	    }
-	    public function report(\Exception $e)
-	    {
-	    }
-	    public function render($request, \Exception $e)
-	    {
-	        throw $e;
-       }  
-   }
+class TestHandler extends Handler
+{
+    public function __construct()
+    {
+    }
+
+    public function report(\Exception $e)
+    {
+    }
+
+    public function render($request, \Exception $e)
+    {
+        throw $e;
+    }
+}
 

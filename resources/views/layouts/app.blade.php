@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
     <!-- favicon icon link -->
-     <link rel="icon" href="{{ asset('discusslab.png') }}" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{ asset('discusslab.png') }}" type="image/gif" sizes="16x16">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -29,42 +28,49 @@
     </script>
 </head>
 <body>
-      
-      <!-- Navbar -->
-      @include('partials.navbar')
 
-     <div id="app">
-       @yield('content') 
+<!-- Navbar -->
+@include('partials.navbar')
 
-      <!-- Vue flash component -->
-        <flash message="{{ session('flash') }}"></flash>
+<div id="app">
+@yield('content')
 
-      <!-- modal partial -->
-        @include('partials.modal')
-        
-      </div>
-      <!-- Scripts -->
-      <script src="{{ asset('js/app.js') }}"></script>
-      <script type="text/javascript">
+<!-- Vue flash component -->
+    <flash message="{{ session('flash') }}"></flash>
 
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- modal partial -->
+    @include('partials.modal')
 
-      ga('create', 'UA-90120268-2', 'auto');
-      ga('send', 'pageview');
+</div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-90120268-2', 'auto');
+    ga('send', 'pageview');
 
 
-      function toggleCaret() {
-          var x = document.querySelector(".w3-dropdown-content");
-          if (x.className.indexOf("w3-show") == -1) {  
-              x.className += " w3-show";
-          } else { 
-              x.className = x.className.replace(" w3-show", " ");
-          }
+    function toggleCaret() {
+        var x = document.querySelector(".w3-dropdown-content");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", " ");
         }
-      
-    </script>
+    }
+
+</script>
 </body>
 </html>

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Thread;
 
 class SearchController extends Controller
@@ -11,8 +10,8 @@ class SearchController extends Controller
     {
         $keyword = request('q');
 
-        $threads = Thread::where('title','ilike',"%$keyword%")->get();
+        $threads = Thread::where('title', 'ilike', "%$keyword%")->get();
 
-        return view('threads.index',compact('threads'));
+        return view('threads.index', compact('threads'));
     }
 }
