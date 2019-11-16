@@ -1,19 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Auth::routes();
 
-// To do : create a landing page.
 Route::get('/', 'ThreadController@index');
 Route::get('/threads', 'ThreadController@index');
 Route::delete('/threads/{thread}', 'ThreadController@destroy')->name('delete_thread');

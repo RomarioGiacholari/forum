@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Channel;
+use Illuminate\Database\Seeder;
 
 class ChannelTableSeeder extends Seeder
 {
@@ -12,10 +12,8 @@ class ChannelTableSeeder extends Seeder
      */
     public function run()
     {
-        Channel::create([
+        $attributes = ['name' => 'art', 'slug' => 'art'];
 
-            'name' => 'art',
-            'slug' => 'art'
-        ]);
+        Channel::create($attributes);
     }
 }

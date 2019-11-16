@@ -17,6 +17,7 @@
                 show: false
             }
         },
+
         created() {
             if (this.message) {
                 this.flash();
@@ -25,6 +26,7 @@
                 'flash', data => this.flash(data)
             );
         },
+        
         methods: {
             flash(data) {
                 if (data) {
@@ -34,6 +36,7 @@
                 this.show = true;
                 this.hide();
             },
+
             hide() {
                 setTimeout(() => {
                     this.show = false;

@@ -14,10 +14,10 @@ class ProfilesTest extends TestCase
     /** @test */
     public function a_user_has_a_profile()
     {
-        $user = create('App\User');
+        $user = create('App\User', ['name' => 'JohnDoeJunior']);
 
         $this->get("/profiles/{$user->name}")
-            ->assertSee($user->name);
+            ->assertSee('JohnDoeJunior');
     }
 
     /** @test */

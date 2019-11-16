@@ -18,7 +18,7 @@
 
        computed: {
            classes() { 
-            return ['btn', this.isFavorited ? 'btn-primary' : 'btn-default'];
+                return ['btn', this.isFavorited ? 'btn-primary' : 'btn-default'];
            },
 
            endpoint(){
@@ -28,26 +28,22 @@
 
        methods: {
            toggle() {
-            
-            return this.isFavorited ? this.destroy() : this.create();
+                return this.isFavorited ? this.destroy() : this.create();
            },
 
            create() {
-
-                   axios.post(this.endpoint);
-                   this.isFavorited = true;
-                   this.favoritesCount ++;
-                   flash('Liked');
+                axios.post(this.endpoint);
+                this.isFavorited = true;
+                this.favoritesCount ++;
+                flash('Liked');
            },
 
            destroy() {
-
-                   axios.delete(this.endpoint);
-                   this.isFavorited = false;
-                   this.favoritesCount --;
-                   flash('Disliked');
+                axios.delete(this.endpoint);
+                this.isFavorited = false;
+                this.favoritesCount --;
+                flash('Disliked');
            }
        }
-
     }
 </script>

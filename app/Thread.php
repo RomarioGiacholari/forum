@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
-
     protected $guarded = [];
 
     protected static function boot()
@@ -53,5 +52,4 @@ class Thread extends Model
     {
         return $filters->apply($query);
     }
-
 }
