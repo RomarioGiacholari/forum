@@ -8,8 +8,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ThreadsTest extends TestCase
 {
-
-
     use DatabaseTransactions;
 
     public function setUp()
@@ -50,11 +48,14 @@ class ThreadsTest extends TestCase
     {
         $channel = create('App\Channel');
 
-        $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
+        $threadInChannel = create('App\Thread', [
+            'channel_id' => $channel->id,
+            'body' => 'Body that should be included in the page'
+            ]);
 
-        $threadNotInChannel = create('App\Thread');
+        $threadNotInChannel = create('App\Thread', ['body' => 'Body that should not be inlcuded in the page']);
 
-        $this->get('/threads/' . $channel->slug)
+        $this->get("/threads/{$channel->slug}")
             ->assertSee($threadInChannel->body)
             ->assertDontSee($threadNotInChannel->body);
     }
@@ -85,20 +86,4 @@ class ThreadsTest extends TestCase
         $response = $this->getJson('/threads?popular=1')->json();
         $this->assertEquals([3, 2, 0], array_column($response, 'replies_count'));
     }
-
-
-    //It fails because the testing DB is MySql. On production PgSql works fine.
-
-    // /** @test*/
-    // public function a_user_can_serach_threads_by_title()
-    // {
-
-    //     $thread = create('App\Thread',[
-    //         'title' => 'myTitle'
-    //     ]);
-
-    //     $this->get('search?q=myTitle')
-    //     ->assertSee($thread->body);
-
-    // }
 }

@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Model Factories
-|--------------------------------------------------------------------------
-|
-| Here you may define all of your model factories. Model factories give
-| you a convenient way to create models for testing and seeding your
-| database. Just tell the factory how a default model should look.
-|
-*/
-
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -26,11 +15,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Thread::class, function (Faker\Generator $faker) {
 
     return [
-    	'user_id' => function(){
+        'user_id' => function () {
 
-    		return factory('App\User')->create()->id;
-    	},
-        'channel_id' =>function(){
+            return factory('App\User')->create()->id;
+        },
+        'channel_id' => function () {
 
             return factory('App\Channel')->create()->id;
         },
@@ -42,15 +31,15 @@ $factory->define(App\Thread::class, function (Faker\Generator $faker) {
 $factory->define(App\Reply::class, function (Faker\Generator $faker) {
 
     return [
-    	'thread_id' => function(){
+        'thread_id' => function () {
 
-    		return factory('App\Thread')->create()->id;
-    	},
-    	
-    	'user_id' => function(){
+            return factory('App\Thread')->create()->id;
+        },
 
-    		return factory('App\User')->create()->id;
-    	},
+        'user_id' => function () {
+
+            return factory('App\User')->create()->id;
+        },
         'body' => $faker->paragraph
     ];
 });
@@ -60,7 +49,7 @@ $factory->define(App\Channel::class, function (Faker\Generator $faker) {
     $name = $faker->word;
     return [
 
-    'name' => $name,
-    'slug' => $name,        
+        'name' => $name,
+        'slug' => $name,
     ];
 });

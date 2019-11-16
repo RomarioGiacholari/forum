@@ -4,7 +4,6 @@ namespace App;
 
 trait Favoritable
 {
-
     /**
      * Boot the trait.
      */

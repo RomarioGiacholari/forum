@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Thread;
 use App\Channel;
-use App\Filters\ThreadFilters;
 use Illuminate\Http\Request;
+use App\Filters\ThreadFilters;
 
 class ThreadController extends Controller
 {
-
     public function __construct()
     {
-
         $this->middleware('auth')->except(['index', 'show']);
     }
 
@@ -52,7 +50,6 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->validate($request, [
             'title' => 'required|max:15',
             'body' => 'required|max:255',

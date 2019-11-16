@@ -51,11 +51,10 @@ class ReplyController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        if (!$thread->creator->id == auth()->id()) {
+        if ($thread->creator->id !== auth()->id()) {
 
             Mail::to($thread->creator->email)->send(new UserReplied($thread, auth()->user()));
         }
-
 
         if (request()->expectsJson()) {
             return $reply->load('owner');

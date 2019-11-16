@@ -15,12 +15,11 @@
 
         <p class='text-center' v-else>
             <a href="/login">
-                Please sign in to participate in this discussion
+                <u>Please sign in to participate in this discussion</u>
             </a>
         </p>
        
     </div>
-            
 </template>
 
 <script>
@@ -39,26 +38,21 @@
         signedIn() {
             return window.App.signedIn;
         }
-
     },
 
     methods: {
 
         addReply() {
             axios.post(this.endpoint, { body: this.body })
-                .catch(error => {
+                 .catch(error => {
                        flash(error.response.data.body[0],'danger');
-                    })
-                    .then(({data}) => {
-                         this.body = '';
-                       
-                         this.$emit('created', data);
-                     });
+                  })
+                 .then(({data}) => {
+                        this.body = '';
+                    
+                        this.$emit('created', data);
+                  });
         }
     }
-
-
-
 };
-
 </script>
