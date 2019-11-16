@@ -29,7 +29,7 @@
 
             <hr/>
 
-            <p>{{$user->name}} replied to the thread. <a href="www.discusslab.com/{{$thread->path()}}">Visit the thread.</a></p>
+            <p>{{$user->name}} replied to the thread. <a href="{{ url($thread->path()) }}">Visit the thread.</a></p>
 
         </div>
     </div>
