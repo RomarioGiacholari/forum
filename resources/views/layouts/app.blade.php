@@ -35,11 +35,17 @@
 <div id="app">
 @yield('content')
 
-<!-- Vue flash component -->
+    <!-- Vue flash component -->
     <flash message="{{ session('flash') }}"></flash>
 
     <!-- modal partial -->
     @include('partials.modal')
+
+    <div class="text-center p-2">
+        <small>
+            &copy; discusslab 2019 | <a href="{{ route('privacy-policy.index') }}">privacy</a>
+        </small>
+    </div>
 
 </div>
 <!-- Scripts -->

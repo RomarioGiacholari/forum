@@ -24,3 +24,5 @@ Route::patch('/replies/{reply}', 'ReplyController@update')->name('update_reply')
 Route::get('profiles/{user}', 'ProfileController@show')->name('profile');
 
 Route::get('search', 'SearchController@search');
+
+Route::get('/privacy-policy', 'PrivacyPolicyController@index')->name('privacy-policy.index');
