@@ -41,7 +41,7 @@
     <!-- modal partial -->
     @include('partials.modal')
 
-    <div class="text-center p-2">
+    <div class="text-center p-2" style="margin-top:150px">
         <small>
             &copy; discusslab 2019 | <a href="{{ route('privacy-policy.index') }}">privacy</a>
         </small>
